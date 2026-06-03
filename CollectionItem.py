@@ -32,26 +32,22 @@ class CollectionItem:
             "Sensitivity Level": self.sensitivity_level
         }
 
-
-    
-def __repr__(self):
-        details = self.get_item_details()
-
+ 
+    def __repr__(self):
         return (
             f"\nCollection Item\n"
             f"------------------------\n"
-            f"ID: {details['ID']}\n"
-            f"Title: {details['Title']}\n"
-            f"Description: {details['Description']}\n"
-            f"Image Link: {details['Image Link']}\n"
-            f"Type: {details['Type']}\n"
-            f"Category: {details['Category']}\n"
-            f"Review Status: {details['Review Status']}\n"
-            f"Access Status: {details['Access Status']}\n"
-            f"Access Considerations: {details['Access Considerations']}\n"
-            f"Sensitivity Level: {details['Sensitivity Level']}\n"
+            f"ID: {self.item_id}\n"
+            f"Title: {self.title}\n"
+            f"Description: {self.description}\n"
+            f"Image Link: {self.image_link}\n"
+            f"Type: {self.item_type}\n"
+            f"Category: {self.item_category}\n"
+            f"Review Status: {self.review_status}\n"
+            f"Access Status: {self.access_status}\n"
+            f"Access Considerations: {self.access_considerations}\n"
+            f"Sensitivity Level: {self.sensitivity_level}\n"
         )
-
 
 
     # Display details
