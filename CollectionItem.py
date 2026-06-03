@@ -17,7 +17,7 @@ class CollectionItem:
         self.sensitivity_level = sensitivity_level
 
 
-    # ✅ Get item details
+    # Get item details
     def get_item_details(self):
         return {
             "ID": self.item_id,
@@ -33,7 +33,6 @@ class CollectionItem:
         }
 
 
-    # ✅ __repr__ method (returns details as string)
     
 def __repr__(self):
         details = self.get_item_details()
@@ -55,7 +54,7 @@ def __repr__(self):
 
 
 
-    # ✅ Display details
+    # Display details
     def display_details(self):
         print("Collection Item Details")
         print("----------------------")
@@ -63,13 +62,13 @@ def __repr__(self):
             print(key + ":", value)
 
 
-    # ✅ Update access status
+    # Update access status
     def update_access_status(self, new_status):
         self.access_status = new_status
         print("Access status updated to:", new_status)
 
 
-    # ✅ Submit for review (boolean)
+    # Submit for review (boolean)
     def submit_for_review(self):
         self.review_status = "Pending Review"
         return True
