@@ -1,3 +1,5 @@
+from AccessRequest import AccessRequest
+
 class PublicUser:
     # Constructor
     def __init__(self, public_user_id, full_name, email):
