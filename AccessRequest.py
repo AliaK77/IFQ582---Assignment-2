@@ -13,6 +13,7 @@ class AccessRequest:
     def get_access_request_details(self):
         return {
             "Request ID": self.request_id,
+            "Item ID": self.item.item_id,
             "Request Reason": self.request_reason,
             "Request Status": self.request_status,
             "Request Timestamp": self.request_timestamp
