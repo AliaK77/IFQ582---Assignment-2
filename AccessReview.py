@@ -7,7 +7,7 @@ class AccessReview:
         self.review_notes = review_notes
         self.access_outcome = access_outcome
         self.review_timestamp = datetime.now()   # current date and time
-
+        self.item = item
 
     # Get AccessReview details
     def get_access_review_details(self):
@@ -25,6 +25,7 @@ class AccessReview:
             f"\nAccess Review\n"
             f"------------------------\n"
             f"Review ID: {self.review_id}\n"
+            f"Item ID: {self.item.item_id}\n"
             f"Notes: {self.review_notes}\n"
             f"Outcome: {self.access_outcome}\n"
             f"Timestamp: {self.review_timestamp}\n"
