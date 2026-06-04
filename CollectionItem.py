@@ -15,6 +15,7 @@ class CollectionItem:
         self.access_status = access_status
         self.access_considerations = access_considerations
         self.sensitivity_level = sensitivity_level
+        self.access_reviews = []
 
 
     # Get item details
@@ -68,4 +69,17 @@ class CollectionItem:
     def submit_for_review(self):
         self.review_status = "Pending Review"
         return True
+
+    # link a review to item
+    def add_access_review(self, review):
+        self.access_reviews.append(review)
+        print("Access review added to item.")
+
+    # view all reviews
+    def view_access_reviews(self):
+        print(f"\nAccess Reviews for Item ID: {self.item_id}")
+        print("------------------------")
+
+        for review in self.access_reviews:
+            print(review)
 
