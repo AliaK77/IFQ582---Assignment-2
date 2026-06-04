@@ -2,7 +2,7 @@ from datetime import datetime
 
 class AccessRequest:
     # Constructor
-    def __init__(self, request_id, request_reason):
+    def __init__(self, request_id, request_reason, item):
         self.request_id = request_id
         self.request_reason = request_reason
         self.request_status = "Draft"   # default status
