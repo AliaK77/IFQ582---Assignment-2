@@ -5,3 +5,4 @@ It became TEST folder.
 Renamed TEST to app.
 Everything still works with python3 run.py
 
+All images are now in app/static/Images, so deleted the old /Images
