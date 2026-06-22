@@ -1,6 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `library_database` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+DROP DATABASE IF EXISTS `library_database`;
+CREATE DATABASE `library_database`;
 USE `library_database`;
--- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
+
+-- MySQL dump 10.13  Distrib 8.0.46, for Linux (x86_64)
 --
 -- Host: localhost    Database: library_database
 -- ------------------------------------------------------
@@ -79,31 +81,6 @@ LOCK TABLES `access_review` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `cities`
---
-
-DROP TABLE IF EXISTS `cities`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cities` (
-  `city_id` int NOT NULL AUTO_INCREMENT,
-  `city_name` varchar(100) NOT NULL,
-  `city_description` text,
-  `city_image` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`city_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cities`
---
-
-LOCK TABLES `cities` WRITE;
-/*!40000 ALTER TABLE `cities` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cities` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `collection_items`
 --
 
@@ -144,10 +121,10 @@ DROP TABLE IF EXISTS `community_elder`;
 CREATE TABLE `community_elder` (
   `elder_ID` int NOT NULL AUTO_INCREMENT,
   `community_name` varchar(30) DEFAULT NULL,
-  `ID` int NOT NULL,
+  `user_ID` int NOT NULL,
   PRIMARY KEY (`elder_ID`),
-  KEY `ID` (`ID`),
-  CONSTRAINT `community_elder_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `user` (`ID`)
+  KEY `user_ID` (`user_ID`),
+  CONSTRAINT `community_elder_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `user` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -191,10 +168,10 @@ DROP TABLE IF EXISTS `library_member`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `library_member` (
   `member_ID` int NOT NULL AUTO_INCREMENT,
-  `ID` int NOT NULL,
+  `user_ID` int NOT NULL,
   PRIMARY KEY (`member_ID`),
-  KEY `ID` (`ID`),
-  CONSTRAINT `library_member_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `user` (`ID`)
+  KEY `user_ID` (`user_ID`),
+  CONSTRAINT `library_member_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `user` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -219,11 +196,11 @@ CREATE TABLE `library_staff` (
   `employee_ID` int NOT NULL AUTO_INCREMENT,
   `position_title` varchar(50) DEFAULT NULL,
   `start_date` date DEFAULT NULL,
-  `ID` int NOT NULL,
+  `user_ID` int NOT NULL,
   `is_admin` int NOT NULL,
   PRIMARY KEY (`employee_ID`),
-  KEY `ID` (`ID`),
-  CONSTRAINT `library_staff_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `user` (`ID`)
+  KEY `user_ID` (`user_ID`),
+  CONSTRAINT `library_staff_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `user` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -235,36 +212,6 @@ LOCK TABLES `library_staff` WRITE;
 /*!40000 ALTER TABLE `library_staff` DISABLE KEYS */;
 INSERT INTO `library_staff` VALUES (1,'Library Director','2026-02-02',1,1),(2,'Librarian','2026-04-13',2,0),(3,'Admin','2026-01-01',13,1),(4,'Librarian','2026-04-26',12,0);
 /*!40000 ALTER TABLE `library_staff` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tours`
---
-
-DROP TABLE IF EXISTS `tours`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tours` (
-  `tour_id` int NOT NULL AUTO_INCREMENT,
-  `city_id` int DEFAULT NULL,
-  `tour_name` varchar(100) NOT NULL,
-  `tour_description` text,
-  `tour_image` varchar(255) DEFAULT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `tour_date` date DEFAULT NULL,
-  PRIMARY KEY (`tour_id`),
-  KEY `city_id` (`city_id`),
-  CONSTRAINT `tours_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tours`
---
-
-LOCK TABLES `tours` WRITE;
-/*!40000 ALTER TABLE `tours` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tours` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -294,35 +241,6 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` VALUES (1,'Mary','Oliver','mary.oliver@gmail.com','0432998447','pa$$Word'),(2,'Kate','Brown','kbrown@hotmail.com','0405668776','123456789'),(3,'Alex','Smith','smithy@yahoo.com','0400443887','apple123'),(4,'Peter','Piper','ppiper@live.com','0433887998','password'),(5,'Timothy','McFee','timm@gmail.com','0498123456','timothymcfee'),(6,'Marlene','Monty','marlee3@gmail.com','0455332332','passwOrd1'),(11,'Public','User','publicuser@qut.edu.au','1234567890','publicuser'),(12,'Library','Staff','librarystaff@qut.edu.au','0412345678','librarystaff'),(13,'Library','Admin','libraryadmin@qut.edu.au','0498765432','libraryadmin'),(14,'Comunity','Elder','elder@qut.edu.au','0400990099','communityelder');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `user_password` varchar(255) NOT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `firstname` varchar(100) DEFAULT NULL,
-  `surname` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -333,4 +251,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-21 12:08:49
+-- Dump completed on 2026-06-22 18:23:56
