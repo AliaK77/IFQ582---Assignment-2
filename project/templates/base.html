@@ -6,50 +6,61 @@
     <meta name="description" content="Library of Indigenous Knowledge and History">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Library of Indigenous Knowledge and History</title>
+    <title>{%block title%} Library of Indigenous Knowledge and History{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 
 </head>
-<style>
-    .navbar-custom {
-    background-color: #37231c;
-    }
-.btn-primary {
-    background-color: #37231C;
-    border-color: #37231C;
-}
 
-.btn-primary:hover {
-    background-color: #4A3027;
-    border-color: #4A3027;
-}
-
-.footer-custom {
-    background-color: #37231c;
-}
-</style>
 <body>
 
 <header>
-    <!--Navigation Bar (Bootstrap)-->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+<!--Top Navbar-->
+<nav class="navbar navbar-dark navbar-custom">
+  <div class="container">
+
+    <a class="navbar-brand" href="{{ url_for('bp.index')}}">
+      Library of Indigenous Knowledge and History
+    </a>
+    <div class="ml-auto">
+      <a class="btn btn-outline-light btn-sm" href="#!">
+        Login / Account
+      </a>
+    </div>
+  </div>
+</nav>
+
+    <!--Secondary Navigation Bar (Bootstrap)-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom-secondary">
         <div class="container">
 
-
-  <a class="navbar-brand" href="{{ url_for('bp.index') }}">Library of Indigenous Knowledge and History</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" 
+          type="button" 
+          data-toggle="collapse" 
+          data-target="#mainNavbar" 
+          aria-controls="mainNavbar" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link active" href="{{ url_for('bp.index') }}">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="{{ url_for('bp.item') }}">Collection Item</a>
-      <a class="nav-item nav-link" href="{{ url_for('bp.assessment') }}">Assessment</a>
+  <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link {% if request.endpoint == 'bp.index'%} active{% endif %}" 
+      href="{{ url_for('bp.index') }}">Home </a>
+      <a class="nav-item nav-link {% if request.endpoint == 'bp.item'%} active{% endif %}"
+      href="{{ url_for('bp.item') }}">Collection Item</a>
+      <a class="nav-item nav-link {% if request.endpoint == 'bp.assessment' %}active{% endif %}"
+      href="{{ url_for('bp.assessment') }}">Reviewer Assessment</a>
+    <a class="nav-item nav-link {% if request.endpoint == 'bp.assessment' %}active{% endif %}"
+      href="{{ url_for('bp.index') }}#contact">
+      Contact
+      </a>
     </div>
 
   </div>
@@ -57,16 +68,50 @@
  </div>
 
 </nav>
+</header>
+
+<main>
+
      <!-- This is the blank spot child pages will fill in -->
         {% block content %}
         {% endblock %}
-</header>
-<main>
+
 
 </main>
 
-<footer class="footer-custom text-white text-center py-3">
-  <p class="mb-0">&copy; Library of Indigenous Knowledge and History 2026. All rights reserved.</p>
+<footer class="footer-custom text-white pt-4 pb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mb-3">
+        <h5>Library of Indigenous Knowledge and History</h5>
+        <p class="mb-2">
+          We acknowledge the Traditional Custodians of the Country throughout Australia and honour their Elders past and present.
+        </p>
+  </div>
+  <div class="col-md-4 mb-3 text-md-right">
+    <h5>Site Links</h5>
+    <ul class="list-unstyled mb-0">
+    <li>
+      <a class="footer-link" href="{{url_for('bp.index')}}">Home</a>
+    </li>
+        <li>
+      <a class="footer-link" href="{{url_for('bp.index')}}#collection">Browse Collection</a>
+    </li>
+      <li>
+      <a class="footer-link" href="{{url_for('bp.index')}}#featured-items">Featured Items</a>
+    </li>
+    <li>
+      <a class="footer-link" href="{{url_for('bp.index')}}#contact">Contact</a>
+    </li>
+  </ul>
+  </div>
+  </div>
+
+  <hr class="footer-divider">
+    <p class="small text-center mb-0">
+    &copy; Library of Indigenous Knowledge and History 2026. All rights reserved.
+    </p>
+    </div>
 </footer>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -79,7 +124,10 @@
 
 $(document).ready(function() {
     // Target the modal ID and show it
+    if (localStorage.getItem('welcomeModalShown') !=='true'){
     $('#exampleModal3').modal('show');
+    localStorage.setItem('welcomeModalShown', 'true');
+    }
 });
 </script>
 
