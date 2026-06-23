@@ -68,16 +68,50 @@
  </div>
 
 </nav>
+</header>
+
+<main>
+
      <!-- This is the blank spot child pages will fill in -->
         {% block content %}
         {% endblock %}
-</header>
-<main>
+
 
 </main>
 
-<footer class="footer-custom text-white text-center py-3">
-  <p class="mb-0">&copy; Library of Indigenous Knowledge and History 2026. All rights reserved.</p>
+<footer class="footer-custom text-white pt-4 pb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mb-3">
+        <h5>Library of Indigenous Knowledge and History</h5>
+        <p class="mb-2">
+          We acknowledge the Traditional Custodians of the Country throughout Australia and honour their Elders past and present.
+        </p>
+  </div>
+  <div class="col-md-4 mb-3 text-md-right">
+    <h5>Site Links</h5>
+    <ul class="list-unstyled mb-0">
+    <li>
+      <a class="footer-link" href="{{url_for('bp.index')}}">Home</a>
+    </li>
+        <li>
+      <a class="footer-link" href="{{url_for('bp.index')}}#collection">Browse Collection</a>
+    </li>
+      <li>
+      <a class="footer-link" href="{{url_for('bp.index')}}#featured-items">Featured Items</a>
+    </li>
+    <li>
+      <a class="footer-link" href="{{url_for('bp.index')}}#contact">Contact</a>
+    </li>
+  </ul>
+  </div>
+  </div>
+
+  <hr class="footer-divider">
+    <p class="small text-center mb-0">
+    &copy; Library of Indigenous Knowledge and History 2026. All rights reserved.
+    </p>
+    </div>
 </footer>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

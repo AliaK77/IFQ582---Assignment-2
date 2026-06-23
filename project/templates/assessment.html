@@ -15,20 +15,21 @@
   Preview and approve collection items here to ensure they meet cultural sensitivity standards, access policies, and disclosure guidelines.
 </p>
     <section class="container px-5 my-4">
-        <div class="card assessment card">
+        <div class="card assessment-card">
           <div class="card-header">
           Item Under Review
         </div>
 
         <div class="card-body">
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-4">
             <img src="{{url_for('static', filename='Images/ItemPhotograph.jpg')}}"
             class="img-fluid"
             alt="Collection item image">
           </div>
   
-    <div class="col-md-7">
+    <div class="col-md-8">
+      <div class="table-responsive">
   <table class="table table-bordered">
     <tbody>
     <tr>
@@ -63,46 +64,51 @@
     </div>
 </section>
 
+<!--Review and access information-->
 <section class="container px-5 my-4">
-  <div class="card assessment card">
+  <div class="card assessment-card">
 <div class="card-header">
   Review and Access Information
 </div>
 
 <div class="card-body">
+  <div class="table-responsive">
 
 <table class="table table-bordered">
   <tbody>
   <tr>
       <th>Review Status</th>
-      <td>review_status</td>
+      <td>review status</td>
     </tr>
 
       <tr>
       <th>Access Level</th>
-      <td>access_level</td>
+      <td>access level</td>
     </tr>
 
       <tr>
       <th>Sensitivity Notes</th>
-      <td>sensitivity_notes</td>
+      <td>sensitivity notes</td>
     </tr>
 
       <tr>
       <th>Current Recommendation</th>
-      <td>current_recommendation</td>
+      <td>current recommendation</td>
     </tr>
 
     <tr>
       <th>Conditions of Use</th>
-      <td>conditions_of_use</td>
+      <td>conditions of use</td>
     </tr>
 
       </table>
+      </div>
+      </div>
+      </div>
   </section>
 
 <section class="container px-5 my-4">
-  <div class="card assessment card">
+  <div class="card assessment-card">
     <div class="card-header">
     Review Discussion History
   </div>
@@ -130,7 +136,7 @@
 </section>
 
 <section class="container px-5 my-4">
-  <div class="card assessment card">
+  <div class="card assessment-card">
     <div class="card-header">
       Community Review
     </div>
@@ -163,7 +169,7 @@
   <option value="Medium">Medium Sensitivity</option>
   <option value="High">High Sensitivity</option>
 </select>
-
+</div>
         <div class="form-group">
     <label for="conditionOfUse">Conditions of Use</label>
     <input type="text" class="form-control" name="conditionsofUse" id="conditionOfUse" placeholder="Enter conditions of use">
