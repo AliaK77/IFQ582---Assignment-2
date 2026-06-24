@@ -1,15 +1,19 @@
+### import flask and template
 from flask import Flask,  render_template
 
 
 app = Flask(__name__)
 
+### creat the web app which will run on local server http://127.0.0.1:5000 (default port)
 def create_app():
     app.debug=True
 
+    ### register the blueprint routes for views - to create the routes for the web app
     from . import views
     app.register_blueprint(views.bp)
     return app
 
+### error handling for HTTP 404 (not found) and HTTP 500 (internal server error) errors
 @app.errorhandler(404) 
 # inbuilt function which takes error as parameter 
 def not_found(e): 
