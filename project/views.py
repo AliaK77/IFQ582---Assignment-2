@@ -1,8 +1,12 @@
+### REF: IFQ582-5.8
+### import flask and blueprint / route template
 from flask import Blueprint, render_template, request
 bp = Blueprint('bp', __name__) 
 
- 
-@bp.route('/index/', methods = ['GET', 'POST']) 
+
+### index route was showing a 404 inline in the home page, so I swapped to / to redirect to index.html --kath
+###@bp.route('/index/', methods = ['GET', 'POST']) 
+@bp.route('/', methods = ['GET', 'POST']) 
 
 def index(): 
 
