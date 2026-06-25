@@ -19,10 +19,7 @@ class User:
     #  __repr__ 
     def __repr__(self):
         return (
-            f"\User\n"
-            f"------------------------\n"
-            f"ID: {self.first_name}\n"
-            f"Name: {self.last_name}\n"
+            f"Name: {self.first_name} {self.last_name}\n"
             f"Email: {self.email}\n"
         )
 
