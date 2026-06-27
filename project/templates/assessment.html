@@ -6,214 +6,199 @@
 {% block content %}
 <section class="container px-3 px-md-5 my-5">
   <div class="text-end mb-4">
-  <a href="#!" class="btn btn-outline-dark btn-sm">
-    Next Item for Review
-  </a>
+    <a href="#!" class="btn btn-outline-dark btn-sm">
+      Next Item for Review
+    </a>
   </div>
 
   <div class="assessment-page-header mb-4">
     <h1 class="mb-2"> Assessment Workspace</h1>
-  <p>
-  Preview and approve collection items here to ensure they meet cultural sensitivity standards, access policies, and disclosure guidelines.
-  </p>
+    <p>
+      Preview and approve collection items here to ensure they meet cultural sensitivity standards, access policies, and
+      disclosure guidelines.
+    </p>
 
   </div>
 </section>
 
 <section class="container px-3 px-md-5 my-5">
-      <div class="alert alert-cultural">
-        This page is restricted to authorised community elders, library staff and authorised review participants. 
-    </div>
+  <div class="alert alert-cultural">
+    This page is restricted to authorised community elders, library staff and authorised review participants.
+  </div>
 
-    <section class="container px-3 px-md-5 my-4">
-        <div class="card assessment-card">
-          <div class="card-header">
-          Item Under Review
-        </div>
+  <section class="container px-3 px-md-5 my-4">
+    <div class="card assessment-card">
+      <div class="card-header">
+        Item Under Review
+      </div>
 
-        <div class="card-body">
+      <div class="card-body">
         <div class="row">
           <div class="col-md-4 mb-4 mb-md-0">
-            <img src="{{url_for('static', filename='Images/ItemPhotograph.jpg')}}"
-            class="img-fluid assessment-image"
-            alt="Collection item image">
+            <img src="{{url_for('static', filename='Images/ItemPhotograph.jpg')}}" class="img-fluid assessment-image"
+              alt="Collection item image">
           </div>
-  
-    <div class="col-md-8">
-      <div class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-    <tr>
-      <th>Item ID</th>
-      <td>item_ID</td>
-    </tr>
 
-     <tr>
-      <th>Title</th>
-      <td>item_title</td>
-    </tr>
+          <div class="col-md-8">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th>Item ID</th>
+                    <td>item_ID</td>
+                  </tr>
 
-    <tr>
-      <th>Category</th>
-      <td>item_category</td>
-    </tr>
+                  <tr>
+                    <th>Title</th>
+                    <td>item_title</td>
+                  </tr>
 
-        <tr>
-      <th>Cultural Group</th>
-      <td>cultural_group</td>
-    </tr>
+                  <tr>
+                    <th>Category</th>
+                    <td>item_category</td>
+                  </tr>
 
-    <tr>
-      <th>Description</th>
-      <td>item_description</td>
-    </tr>
-</tbody>
-</table>
-    </div>
-    </div>
-    </div>
-    </div>
-</section>
+                  <tr>
+                    <th>Cultural Group</th>
+                    <td>cultural_group</td>
+                  </tr>
 
-<!--Review and access information-->
-<section class="container px-3 px-md-5 my-4">
-  <div class="card assessment-card">
-<div class="card-header">
-  Review and Access Information
-</div>
-
-<div class="card-body">
-  <div class="table-responsive">
-<table class="table table-bordered">
-  <tbody>
-  <tr>
-      <th>Review Status</th>
-      <td>review status</td>
-    </tr>
-
-      <tr>
-      <th>Access Level</th>
-      <td>access level</td>
-    </tr>
-
-      <tr>
-      <th>Sensitivity Notes</th>
-      <td>sensitivity notes</td>
-    </tr>
-
-      <tr>
-      <th>Current Recommendation</th>
-      <td>current recommendation</td>
-    </tr>
-
-    <tr>
-      <th>Conditions of Use</th>
-      <td>conditions of use</td>
-    </tr>
-
-      </table>
-      </div>
-      </div>
+                  <tr>
+                    <th>Description</th>
+                    <td>item_description</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
   </section>
 
-<section class="container px-3 px-md-5 my-4">
-  <div class="card assessment-card">
-    <div class="card-header">
-    Review Discussion History
-  </div>
-  <div class="card-body">
-    <p class="text-muted">
-      This section will display review notes, discussions, access decisions connected to the database.
-    </p>
-    <div class="review-history-item">
-      <strong>Library Curator</strong>
-      <p class="small text-muted mb-1">Date submitted</p>
-      <p> 
-        Item submitted for community review. Metadata, access level and sensitivity require assessment.
-      </p>
-    </div>
-  <div class="review-history-item"> 
-    <strong>Community Reviewer</strong> 
-    <p class="small text-muted mb-1">Pending</p> 
-    <p> 
-      Community review notes will appear here once recorded. 
-    </p> 
-  </div> 
-</div> 
-</div>
-
-</section>
-
-<section class="container px-3 px-md-5 my-4">
-  <div class="card assessment-card">
-    <div class="card-header">
-      Community Review
-    </div>
-    <div class="card-body">
-
-<form method="POST">
-      <div class="mb-3">
-        <label for="reviewNotes">Review Notes</label>
-        <textarea class="form-control" 
-                  id="reviewNotes" 
-                  name="reviewNotes" 
-                  rows="5" 
-                  placeholder="Record cultural considerations, discussion notes and any access conditions."
-                  required
-                  minlength="10"></textarea>
-  </div>
-
-  <div class="mb-3">
-<label for="reviewOutcome" class="form-label">Review Outcome</label>
-<select class="form-select" name="reviewOutcome" id="reviewOutcome" required>
-    <option value="" selected disabled>Select</option>
-  <option value="approve">Approve for Public Access</option>
-  <option value="restrict">Restrict Access</option>
-  <option value="furtherConsultationRequired">Further Consultation Required</option>
-</select>
-</div>
-
-<div class="mb-3">
-<label for="sensitivityLevel" class="form-label">Sensitivity Level</label>
-<select class="form-select" 
-        name="sensitivityLevel" 
-        id="sensitivityLevel" required>
-    <option value="" selected disabled>Select</option>
-  <option value="Low">Low Sensitivity</option>
-  <option value="Medium">Medium Sensitivity</option>
-  <option value="High">High Sensitivity</option>
-</select>
-</div>
-
-<div class="mb-3">
-    <label for="conditionsOfUse" class="form-label">Conditions of Use</label>
-    <input type="text" 
-          class="form-control" 
-          name="conditionsofUse" 
-          id="conditionOfUse" 
-          placeholder="Enter conditions of use"
-          required>
-      </div>
-  
-<div class="mb-3">
-    <label for="reviewerName" class="form-label">Reviewer ID</label>
-    <input type="text" 
-          class="form-control" 
-          name="reviewerName" 
-          id="reviewerName" 
-          placeholder="Enter reviewer name"
-          required>
+  <!--Review and access information-->
+  <section class="container px-3 px-md-5 my-4">
+    <div class="card assessment-card">
+      <div class="card-header">
+        Review and Access Information
       </div>
 
-      <button type="submit"
-      class="btn btn-primary">
-    Submit
-    </button>   
-</form>
-</div>
-</div>
-</section>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>Review Status</th>
+                <td>review status</td>
+              </tr>
+
+              <tr>
+                <th>Access Level</th>
+                <td>access level</td>
+              </tr>
+
+              <tr>
+                <th>Sensitivity Notes</th>
+                <td>sensitivity notes</td>
+              </tr>
+
+              <tr>
+                <th>Current Recommendation</th>
+                <td>current recommendation</td>
+              </tr>
+
+              <tr>
+                <th>Conditions of Use</th>
+                <td>conditions of use</td>
+              </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container px-3 px-md-5 my-4">
+    <div class="card assessment-card">
+      <div class="card-header">
+        Review Discussion History
+      </div>
+      <div class="card-body">
+        <p class="text-muted">
+          This section will display review notes, discussions, access decisions connected to the database.
+        </p>
+        <div class="review-history-item">
+          <strong>Library Staff</strong>
+          <p class="small text-muted mb-1">Date submitted</p>
+          <p>
+            Item submitted for community review. Metadata, access level and sensitivity require assessment.
+          </p>
+        </div>
+        <div class="review-history-item">
+          <strong>Community Reviewer</strong>
+          <p class="small text-muted mb-1">Pending</p>
+          <p>
+            Community review notes will appear here once recorded.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="container px-3 px-md-5 my-4">
+    <div class="card assessment-card">
+      <div class="card-header">
+        Community Review
+      </div>
+      <div class="card-body">
+
+        <form method="POST">
+          <div class="mb-3">
+            <label for="reviewNotes">Review Notes</label>
+            <textarea class="form-control" id="reviewNotes" name="reviewNotes" rows="5"
+              placeholder="Record cultural considerations, discussion notes and any access conditions." required
+              minlength="10"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="reviewOutcome" class="form-label">Review Outcome</label>
+            <select class="form-select" name="reviewOutcome" id="reviewOutcome" required>
+              <option value="" selected disabled>Select</option>
+              <option value="approve">Approve for Public Access</option>
+              <option value="restrict">Restrict Access</option>
+              <option value="furtherConsultationRequired">Further Consultation Required</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="sensitivityLevel" class="form-label">Sensitivity Level</label>
+            <select class="form-select" name="sensitivityLevel" id="sensitivityLevel" required>
+              <option value="" selected disabled>Select</option>
+              <option value="Low">Low Sensitivity</option>
+              <option value="Medium">Medium Sensitivity</option>
+              <option value="High">High Sensitivity</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="conditionsOfUse" class="form-label">Conditions of Use</label>
+            <input type="text" class="form-control" name="conditionsofUse" id="conditionOfUse"
+              placeholder="Enter conditions of use" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="reviewerName" class="form-label">Reviewer ID</label>
+            <input type="text" class="form-control" name="reviewerName" id="reviewerName"
+              placeholder="Enter reviewer name" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
 
 
-{% endblock %}
+  {% endblock %}
