@@ -3,10 +3,10 @@ class User:
     def __init__(self, first_name, last_name, email, phone, password):
         self.first_name = first_name
         self.last_name = last_name
+        self.full_name = f"{first_name} {last_name}"
         self.email = email
         self.phone = phone
-        self.password = password # TODO: hash the password, possibly here
-
+        self.password = password
 
     # Get User details
     def get_public_user_details(self):
@@ -19,7 +19,7 @@ class User:
     #  __repr__ 
     def __repr__(self):
         return (
-            f"Name: {self.first_name} {self.last_name}\n"
+            f"Name: {self.full_name}\n"
             f"Email: {self.email}\n"
         )
 

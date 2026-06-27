@@ -1,11 +1,13 @@
+from .user import User
 from project.models.access_request import AccessRequest
 
-class PublicUser:
-    # Constructor
-    def __init__(self, public_user_id, full_name, email):
+class PublicUser(User):
+    def __init__(self, 
+            first_name, last_name, email, phone, password, public_user_id):
+        # Call parent's init
+        super().__init__(first_name=first_name, last_name=last_name, 
+                           email=email, phone=phone, password=password)
         self.public_user_id = public_user_id
-        self.full_name = full_name
-        self.email = email
 
 
     # Get PublicUser details

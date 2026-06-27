@@ -1,9 +1,12 @@
-class LibraryStaff:
+from .user import User
+
+class LibraryStaff(User):
     # Constructor
-    def __init__(self, staff_id, full_name, email):
+    def __init__(self, first_name, last_name, email, phone, password, staff_id):
+        # Call parent's init
+        super().__init__(first_name=first_name, last_name=last_name, 
+                           email=email, phone=phone, password=password)
         self.staff_id = staff_id
-        self.full_name = full_name
-        self.email = email
         self.collection_items = []   
 
 

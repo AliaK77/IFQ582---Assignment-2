@@ -1,10 +1,15 @@
-class CommunityElder:
+from .user import User
+
+class CommunityElder(User):
     # Constructor
-    def __init__(self, community_elder_id, full_name, community_name, email):
+    def __init__(self, 
+            first_name, last_name, email, phone, password, 
+            community_elder_id, community_name):
+        # Call parent's init
+        super().__init__(first_name=first_name, last_name=last_name, 
+                           email=email, phone=phone, password=password)
         self.community_elder_id = community_elder_id
-        self.full_name = full_name
         self.community_name = community_name
-        self.email = email
 
 
     # Get community elder details
