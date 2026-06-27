@@ -23,7 +23,7 @@
 <nav class="navbar navbar-dark navbar-custom">
   <div class="container">
 
-    <a class="navbar-brand" href="{{ url_for('bp.index')}}">
+    <a class="navbar-brand" href="{{ url_for('main.index')}}">
       Library of Indigenous Knowledge and History
     </a>
     <div class="ms-auto">
@@ -51,22 +51,22 @@
 
   <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
     <div class="navbar-nav">
-      <a class="nav-item nav-link {% if request.endpoint == 'bp.index'%} active{% endif %}" 
-      href="{{ url_for('bp.index') }}">Home </a>
+      <a class="nav-item nav-link {% if request.endpoint == 'main.index'%} active{% endif %}" 
+      href="{{ url_for('main.index') }}">Home </a>
           <a class="nav-item nav-link"
-      href="{{ url_for('bp.index') }}#about">
+      href="{{ url_for('main.index') }}#about">
       About
       </a>
           <a class="nav-item nav-link"
-      href="{{ url_for('bp.index') }}#featured-items">
+      href="{{ url_for('main.index') }}#featured-items">
       Collection
       </a>
-      <a class="nav-item nav-link {% if request.endpoint == 'bp.item'%} active{% endif %}"
-      href="{{ url_for('bp.item') }}">Collection Item</a>
-      <a class="nav-item nav-link {% if request.endpoint == 'bp.assessment' %}active{% endif %}"
-      href="{{ url_for('bp.assessment') }}">Reviewer Assessment</a>
+      <a class="nav-item nav-link {% if request.endpoint == 'library.item'%} active{% endif %}"
+      href="{{ url_for('library.item') }}">Collection Item</a>
+      <a class="nav-item nav-link {% if request.endpoint == 'library.assessment' %}active{% endif %}"
+      href="{{ url_for('library.assessment') }}">Reviewer Assessment</a>
     <a class="nav-item nav-link"
-      href="{{ url_for('bp.index') }}#contact">
+      href="{{ url_for('main.index') }}#contact">
       Contact
       </a>
     </div>
@@ -100,19 +100,19 @@
     <h5>Site Links</h5>
     <ul class="list-unstyled mb-0">
     <li>
-      <a class="footer-link" href="{{url_for('bp.index')}}">Home</a>
+      <a class="footer-link" href="{{url_for('main.index')}}">Home</a>
     </li>
      <li>
-      <a class="footer-link" href="{{url_for('bp.index')}}#about">About</a>
+      <a class="footer-link" href="{{url_for('main.index')}}#about">About</a>
     </li>
         <li>
-      <a class="footer-link" href="{{url_for('bp.index')}}#collection">Browse Collection</a>
+      <a class="footer-link" href="{{url_for('main.index')}}#collection">Browse Collection</a>
     </li>
       <li>
-      <a class="footer-link" href="{{url_for('bp.index')}}#featured-items">Featured Items</a>
+      <a class="footer-link" href="{{url_for('main.index')}}#featured-items">Featured Items</a>
     </li>
     <li>
-      <a class="footer-link" href="{{url_for('bp.index')}}#contact">Contact</a>
+      <a class="footer-link" href="{{url_for('main.index')}}#contact">Contact</a>
     </li>
   </ul>
   </div>
