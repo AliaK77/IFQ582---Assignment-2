@@ -1,10 +1,13 @@
 ### import flask and template
+import os
+
 from flask import Flask,  render_template
 from flask_mysqldb import MySQL
+from .db import set_up_database
 
 app = Flask(__name__)
 
-mysql = MySQL(app)
+set_up_database(app)
 
 ### create the web app which will run on local server http://127.0.0.1:5000 (default port)
 def create_app():
