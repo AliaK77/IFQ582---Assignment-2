@@ -13,8 +13,11 @@ set_up_database(app)
 def create_app():
     
     ### register the blueprint routes for views - to create the routes for the web app
-    from . import views
-    app.register_blueprint(views.bp)
+    from .views import auth, main, library
+    app.register_blueprint(auth.bp)
+    app.register_blueprint(main.bp)
+    app.register_blueprint(library.bp)
+    
     return app
 
 ### error handling for HTTP 404 (not found) and HTTP 500 (internal server error) errors
