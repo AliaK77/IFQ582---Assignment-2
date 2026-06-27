@@ -1,6 +1,6 @@
 from datetime import datetime
 from . import mysql
-from .models.User import User
+from .models.user import User
 
 def connection():
     assert mysql.connection is not None
