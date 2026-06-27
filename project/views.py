@@ -2,7 +2,8 @@
 ### import flask and blueprint / route template
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .forms import RegisterForm
-from .db import check_for_user, add_user
+#from .db import check_for_user, add_user
+from .db.user import check_for_user, add_user
 from . import mysql
 
 
