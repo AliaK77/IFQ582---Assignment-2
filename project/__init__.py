@@ -1,4 +1,3 @@
-import os
 ### import flask and template for error handling
 from flask import Flask,  render_template
 from .db.setup import set_up_database
