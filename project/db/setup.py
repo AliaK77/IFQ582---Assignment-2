@@ -1,7 +1,7 @@
 from datetime import datetime
 import os
 from flask_mysqldb import MySQL
-from .models.user import User
+from .connection import cursor
 
 mysql: MySQL
 
@@ -45,43 +45,3 @@ def test_connection():
       cur.close()
    except:
       raise Exception("Database connection failed.")
-
-
-def connection():
-   '''Supplies a database connection with no type errors'''
-   assert mysql.connection is not None
-   return mysql.connection
-
-
-def cursor():
-   '''
-   Supplies a more compact cursor without the extra connection code, when
-   the connection is not needed later.
-   '''
-   return connection().cursor()
-
-
-def check_for_user(email, password):
-    cur = cursor()
-    cur.execute("""
-        SELECT user_id, first_name, last_name, email, phone
-        FROM user
-        WHERE email = %s AND password = %s
-    """, (email, password))
-    row = cur.fetchone()
-    cur.close()
-    if row:
-        return User(row['first_name'], row['last_name'], row['email'], row['phone'], password)
-    return None
-
-
-def add_user(form):
-    conn = connection()
-    cur = conn.cursor()
-    cur.execute("""
-        INSERT INTO users (first_name, last_name, email, phone, password)
-        VALUES (%s, %s, %s, %s, %s, %s)
-    """, 
-    (form.first_name.data, form.last_name.data, form.email.data, form.phone.data, form.password.data))
-    conn.commit()
-    cur.close()

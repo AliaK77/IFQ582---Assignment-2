@@ -3,7 +3,7 @@ import os
 
 from flask import Flask,  render_template
 from flask_mysqldb import MySQL
-from .db import set_up_database
+from .db.setup import set_up_database
 
 app = Flask(__name__)
 
