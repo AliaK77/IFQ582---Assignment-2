@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<section class="container px-5 my-5">
+<section class="container px-3 px-md-5 my-5">
   <div class="mb-4">
     <a href="{{url_for('bp.index') }}#featured-items" class="btn btn-outline-dark btn-sm">
       Return to Collection
@@ -44,7 +44,7 @@
   </div>
 </section>
 
-<section class="container px-5 my-4">
+<section class="container px-3 px-md-5 my-5">
 
   <div class="card item-detail-card">
     <div class="card-header">
@@ -82,8 +82,8 @@
 </div>
 </section>
 
-<section class="container px-5 my-4">
-<div class="item-detail-card">
+<section class="container px-3 px-md-5 my-5">
+<div class="card item-detail-card">
   <div class="card-header">
     Cultural Notes and Access Considerations
 </div>
@@ -99,7 +99,7 @@
 </div>
 </section>
 
-  <section class="container px-5 my-4" id="request-access">
+  <section class="container px-3 px-md-5 my-5" id="request-access">
 <div class="card item-detail-card">
   <div class="card-header">
     Request Access to This Item
@@ -110,21 +110,39 @@ Request access to this item by filling out this form.
   </p>
   
     <form method="POST">
-      <div class="form-group">
-            <label for="fullName">Full Name</label>
-    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name">
+      <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+    <input type="text" 
+          class="form-control" 
+          id="fullName" 
+          name="fullName" 
+          placeholder="Enter your full name"
+          required>
   </div>
-  <div class="form-group">
-    <label for="Email">Email</label>
-    <input type="email" class="form-control" id="Email"  name="email"  placeholder="name@example.com">
-      </div>
-       <div class="form-group">
-    <label for="Reason">Reason for Access Request</label>
-    <textarea class="form-control" id="Reason" name="reason" rows="5" placeholder="Please describe why you would like access to this item. Eg. Personal interest, educational etc."></textarea>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" 
+    class="form-control" 
+    id="email"  
+    name="email"  
+    placeholder="name@example.com"
+    required>
+  </div>
+
+    <div class="mb-3">
+    <label for="Reason" class="form-label">Reason for Access Request</label>
+    <textarea class="form-control" 
+              id="reason" 
+              name="reason" 
+              rows="5" 
+              placeholder="Please describe why you would like access to this item. Eg. Personal interest, educational etc."
+              required
+              minlength="10"></textarea>
       </div>
       <button type="submit"
       class="btn btn-primary">
-    Submit
+      Submit
     </button>
     </form>
     </div>

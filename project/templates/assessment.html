@@ -1,11 +1,11 @@
-<!-- templates/item.html -->
+<!-- templates/assessment.html -->
 {% extends 'base.html' %}
 
 {% block title %}Assessment Details{% endblock %}
 
 {% block content %}
-<section class="container px-5 my-5">
-  <div class="text-right mb4">
+<section class="container px-3 px-md-5 my-5">
+  <div class="text-end mb-4">
   <a href="#!" class="btn btn-outline-dark btn-sm">
     Next Item for Review
   </a>
@@ -20,12 +20,12 @@
   </div>
 </section>
 
-<section class="container px-5 my-5">
+<section class="container px-3 px-md-5 my-5">
       <div class="alert alert-cultural">
         This page is restricted to authorised community elders, library staff and authorised review participants. 
     </div>
 
-    <section class="container px-5 my-4">
+    <section class="container px-3 px-md-5 my-4">
         <div class="card assessment-card">
           <div class="card-header">
           Item Under Review
@@ -33,9 +33,9 @@
 
         <div class="card-body">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 mb-4 mb-md-0">
             <img src="{{url_for('static', filename='Images/ItemPhotograph.jpg')}}"
-            class="img-fluid"
+            class="img-fluid assessment-image"
             alt="Collection item image">
           </div>
   
@@ -76,7 +76,7 @@
 </section>
 
 <!--Review and access information-->
-<section class="container px-5 my-4">
+<section class="container px-3 px-md-5 my-4">
   <div class="card assessment-card">
 <div class="card-header">
   Review and Access Information
@@ -84,7 +84,6 @@
 
 <div class="card-body">
   <div class="table-responsive">
-
 <table class="table table-bordered">
   <tbody>
   <tr>
@@ -118,7 +117,7 @@
       </div>
   </section>
 
-<section class="container px-5 my-4">
+<section class="container px-3 px-md-5 my-4">
   <div class="card assessment-card">
     <div class="card-header">
     Review Discussion History
@@ -146,7 +145,7 @@
 
 </section>
 
-<section class="container px-5 my-4">
+<section class="container px-3 px-md-5 my-4">
   <div class="card assessment-card">
     <div class="card-header">
       Community Review
@@ -154,42 +153,57 @@
     <div class="card-body">
 
 <form method="POST">
-      <div class="form-group">
+      <div class="mb-3">
         <label for="reviewNotes">Review Notes</label>
-        <textarea class="form-control" id="reviewNotes" name="reviewNotes" rows="5" placeholder="Record cultural considerations, discussion notes and any access conditions."></textarea>
+        <textarea class="form-control" 
+                  id="reviewNotes" 
+                  name="reviewNotes" 
+                  rows="5" 
+                  placeholder="Record cultural considerations, discussion notes and any access conditions."
+                  required
+                  minlength="10"></textarea>
   </div>
 
-  <div class="form-group">
-<label for="reviewOutcome">
-    Review Outcome   
-</label>
-<select class="form-control" name="reviewOutcome" id="reviewOutcome">
+  <div class="mb-3">
+<label for="reviewOutcome" class="form-label">Review Outcome</label>
+<select class="form-select" name="reviewOutcome" id="reviewOutcome" required>
     <option value="" selected disabled>Select</option>
   <option value="approve">Approve for Public Access</option>
   <option value="restrict">Restrict Access</option>
   <option value="furtherConsultationRequired">Further Consultation Required</option>
 </select>
+</div>
 
-  <div class="form-group">
-<label for="sensitivityLevel">
-    Sensitivity Level   
-</label>
-<select class="form-control" name="sensitivityLevel" id="sensitivityLevel">
+<div class="mb-3">
+<label for="sensitivityLevel" class="form-label">Sensitivity Level</label>
+<select class="form-select" 
+        name="sensitivityLevel" 
+        id="sensitivityLevel" required>
     <option value="" selected disabled>Select</option>
   <option value="Low">Low Sensitivity</option>
   <option value="Medium">Medium Sensitivity</option>
   <option value="High">High Sensitivity</option>
 </select>
 </div>
-        <div class="form-group">
-    <label for="conditionOfUse">Conditions of Use</label>
-    <input type="text" class="form-control" name="conditionsofUse" id="conditionOfUse" placeholder="Enter conditions of use">
-      </div>
 
-</div>
-  <div class="form-group">
-    <label for="reviewerName">Reviewer ID</label>
-    <input type="text" class="form-control" name="reviewerName" id="reviewerName" placeholder="Enter reviewer name">
+<div class="mb-3">
+    <label for="conditionsOfUse" class="form-label">Conditions of Use</label>
+    <input type="text" 
+          class="form-control" 
+          name="conditionsofUse" 
+          id="conditionOfUse" 
+          placeholder="Enter conditions of use"
+          required>
+      </div>
+  
+<div class="mb-3">
+    <label for="reviewerName" class="form-label">Reviewer ID</label>
+    <input type="text" 
+          class="form-control" 
+          name="reviewerName" 
+          id="reviewerName" 
+          placeholder="Enter reviewer name"
+          required>
       </div>
 
       <button type="submit"
@@ -197,6 +211,8 @@
     Submit
     </button>   
 </form>
+</div>
+</div>
 </section>
 
 

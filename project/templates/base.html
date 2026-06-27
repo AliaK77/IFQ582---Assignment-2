@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="Library of Indigenous Knowledge and History">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{%block title%} Library of Indigenous Knowledge and History{% endblock %}</title>
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
    
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
@@ -26,7 +26,7 @@
     <a class="navbar-brand" href="{{ url_for('bp.index')}}">
       Library of Indigenous Knowledge and History
     </a>
-    <div class="ml-auto">
+    <div class="ms-auto">
       <a class="btn btn-outline-light btn-sm" href="#!">
         Login / Account
       </a>
@@ -40,8 +40,8 @@
 
   <button class="navbar-toggler" 
           type="button" 
-          data-toggle="collapse" 
-          data-target="#mainNavbar" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#mainNavbar" 
           aria-controls="mainNavbar" 
           aria-expanded="false" 
           aria-label="Toggle navigation">
@@ -96,7 +96,7 @@
           We acknowledge the Traditional Custodians of the Country throughout Australia and honour their Elders past and present.
         </p>
   </div>
-  <div class="col-md-4 mb-3 text-md-right">
+  <div class="col-md-4 mb-3 text-md-end">
     <h5>Site Links</h5>
     <ul class="list-unstyled mb-0">
     <li>
@@ -125,22 +125,9 @@
     </div>
 </footer>
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- Bootstrap 5.3.8 -->
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-<script>
-
-$(document).ready(function() {
-    // Target the modal ID and show it
-    if (localStorage.getItem('welcomeModalShown') !=='true'){
-    $('#exampleModal3').modal('show');
-    localStorage.setItem('welcomeModalShown', 'true');
-    }
-});
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

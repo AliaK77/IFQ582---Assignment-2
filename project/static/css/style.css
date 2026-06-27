@@ -35,10 +35,24 @@ main{
 .navbar-brand {
     color:#F8F5F1;
     font-weight: 600;
+    white-space: normal;
+    line-height: 1.2;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
     color: #FFFFFF;
+}
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1rem;
+        max-width: 220px;
+    }
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+    .navbar .btn {
+        margin-top: 0.75rem;
+    }
 }
 
 /*Footer*/
@@ -98,18 +112,41 @@ img {
 }
 
 /* Hero Section */
+
 .hero-section {
-    min-height: 430px;
-    background-image: url("../Images/heroImage.jpg");
+    min-height: relative;
+    background-image: linear-gradient(
+    #F8F5F180
+    ), url("../Images/heroImage.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 70px 0;
 }
 
-.hero-panel {
-    background-color: #F8F5F1;
-    border-radius: 12px;
+.hero-card {
+    background-color: #F4F0EB;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+@media (max-width: 400px) {
+    .hero-card {
+        padding: 1.5rem 1rem;
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+    }
+    .hero-card h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    .hero-card p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    .hero-card .btn {
+        font-size: 0.95rem;
+        padding: 0.6rem 1rem;
+    }
 }
 
 /* Collection Cards */
