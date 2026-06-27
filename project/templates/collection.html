@@ -6,7 +6,7 @@
 {% block content %}
 
 
-<section class="container px-5 my-5">
+<section class="container px-3 px-md-5 my-5">
     
     <div class="collection-page-header mb-4">
         <h1 class="mb-2">Collection</h1>
@@ -14,10 +14,177 @@
             Browse the collection
         </p>
     </div>
-
-    <!-- Side Bar -->
-
 </section>
 
+  <!-- Side Bar -->
+
+  <section class="container px-3 px-md-5 my-5">
+    <div class="row">
+        <div class="col-lg-3 mb-4">
+            <div class="card collection-filter-card">
+                <div class="card-header">
+                    Filter
+                </div>
+
+  <div class="card-body">
+    <form method="GET">
+        <div class="mb-3">
+            <label for="keyword" class="form-label">Search</label>
+            <input type="text"
+            class="form-control"
+            id="keyword"
+            name="keyword"
+            placeholder="Search title or keyword">
+        </div>
+       
+        <div class="mb-3">
+            <label for="categoryFilter" class="form-label">Category</label>
+            <select class="form-select" id="categoryFilter" name="category">
+            <option value="">All Categories</option>
+            <option value="Photography">Photography</option>
+            <option value="Artwork">Artwork</option>
+            <option value="Documents and Stories">Documents and Stories</option>
+            <option value="Audio Collection">Audio Collection</option>
+            <option value="Cultural Artefacts">Cultural Artefacts</option>
+        </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="culturalGroup" class="form-label">Cultural Group</label>
+            <select class="form-select" id="culturalGroup" name="culturalGroup">
+            <option value="">All Cultural Groups</option>
+            <option value="Example">Example</option>
+            <option value="Example">Example</option>
+            <option value="Example">Example</option>
+            <option value="Example">Example</option>
+            <option value="Example">Example</option>
+        </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="accessLevel" class="form-label">Access Level</label>
+            <select class="form-select" id="accessLevel" name="accessLevel">
+            <option value="">All Access Levels</option>
+            <option value="Public">Public</option>
+            <option value="Restricted">Restricted</option>
+            <option value="Private">Private</option>
+        </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+            Show Results
+        </button>
+    </form>
+</div>
+</div>
+</div>
+
+<!-- Filter/ Search Results-->
+<div class="col-lg-9">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">Collection Items</h2>
+        <p class="text-muted mb-0">Browse all items</p>
+    </div>
+
+<!-- Search Result item 1-->
+<article class="card collection-list-item mb-3">
+    <div class="card-body">
+    <div class="row">
+
+        <div class="col-md-3 mb-3 mb-md-0">
+            <img src="{{url_for('static', filename='Images/Photography.jpg')}}"
+            class="img-fluid collection-list-image"
+            alt="Collection item image">
+            </div>
+
+            <div class="col-md-9">
+                <h3 class="h5 mb-2">Item Title</h3>
+
+                <p class="collection-item-details mb-2">
+                    <strong>Item ID:</strong> Item ID |
+                    <strong>Cultural Group:</strong> Cultural Group
+                </p>
+
+                <div class="mb-3">
+                    <span class="badge text-bg-light me-1">Category</span>
+                    <span class="badge text-bg-light me-1">Access Level</span>
+                </div>
+
+                <a href="{{ url_for('bp.item')}}" class="btn btn-primary btn-sm">
+                    View Item
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Search Result item 2-->
+<article class="card collection-list-item mb-3">
+    <div class="card-body">
+    <div class="row">
+
+        <div class="col-md-3 mb-3 mb-md-0">
+            <img src="{{url_for('static', filename='Images/Photography.jpg')}}"
+            class="img-fluid collection-list-image"
+            alt="Collection item image">
+            </div>
+
+            <div class="col-md-9">
+                <h3 class="h5 mb-2">Item Title</h3>
+
+                <p class="collection-item-details mb-2">
+                    <strong>Item ID:</strong> Item ID |
+                    <strong>Cultural Group:</strong> Cultural Group
+                </p>
+
+                <div class="mb-3">
+                    <span class="badge text-bg-light me-1">Category</span>
+                    <span class="badge text-bg-light me-1">Access Level</span>
+                </div>
+
+                <a href="{{ url_for('bp.item')}}" class="btn btn-primary btn-sm">
+                    View Item
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Search Result item 3-->
+<article class="card collection-list-item mb-3">
+    <div class="card-body">
+    <div class="row">
+
+        <div class="col-md-3 mb-3 mb-md-0">
+            <img src="{{url_for('static', filename='Images/Photography.jpg')}}"
+            class="img-fluid collection-list-image"
+            alt="Collection item image">
+            </div>
+
+            <div class="col-md-9">
+                <h3 class="h5 mb-2">Item Title</h3>
+
+                <p class="collection-item-details mb-2">
+                    <strong>Item ID:</strong> Item ID |
+                    <strong>Cultural Group:</strong> Cultural Group
+                </p>
+
+                <div class="mb-3">
+                    <span class="badge text-bg-light me-1">Category</span>
+                    <span class="badge text-bg-light me-1">Access Level</span>
+                </div>
+
+                <a href="{{ url_for('bp.item')}}" class="btn btn-primary btn-sm">
+                    View Item
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+
+</div>
+</div>
+</section>
 
 {% endblock %}
