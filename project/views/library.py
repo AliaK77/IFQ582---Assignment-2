@@ -1,9 +1,9 @@
 ### REF: IFQ582-5.8
 ### import flask and blueprint / route template
 from flask import Blueprint, render_template, request, flash, url_for, redirect
-from flask_login import login_required
 from project.forms import UpdateItemForm
 from ..db.setup import mysql
+from ..wrappers import only_admins
 
 
 bp = Blueprint('library', __name__)
@@ -29,7 +29,7 @@ def assessment():
 
 
 @bp.route("/admin", methods = ['GET', 'POST'])
-@login_required
+@only_admins
 def admin():
     form = UpdateItemForm()
     if form.validate_on_submit():
