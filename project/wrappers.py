@@ -26,3 +26,31 @@ def only_admins(func):
             return redirect(url_for('main.index'))
         return func(*args, **kwargs)
     return wrapper
+
+
+def only_elders(func):
+    """Decorator to ensure that the user is a community elder."""
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user' not in session or session['user']['user_id'] == 0:
+            flash('Please log in before moving on.', 'error')
+            return redirect(url_for('main.login'))
+        if not session['user']['is_elder']:
+            flash('You do not have permission to view this page.', 'error')
+            return redirect(url_for('main.index'))
+        return func(*args, **kwargs)
+    return wrapper
+
+
+def only_staff(func):
+    """Decorator to ensure that the user is a library staff member."""
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user' not in session or session['user']['user_id'] == 0:
+            flash('Please log in before moving on.', 'error')
+            return redirect(url_for('main.login'))
+        if not session['user']['is_library_staff']:
+            flash('You do not have permission to view this page.', 'error')
+            return redirect(url_for('main.index'))
+        return func(*args, **kwargs)
+    return wrapper
