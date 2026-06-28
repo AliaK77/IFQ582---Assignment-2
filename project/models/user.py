@@ -9,10 +9,9 @@ class User:
         self.password = password
 
     # Get User details
-    def get_public_user_details(self):
+    def get_user_details(self):
         return {
-            "first_name": self.first_name,
-            "last_name": self.last_name,
+            "Full Name": self.full_name,
             "Email": self.email
         }
 

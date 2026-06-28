@@ -15,13 +15,35 @@ def check_for_user(email, password):
     return None
 
 
-def add_user(form):
-    conn = connection()
-    cur = conn.cursor()
-    cur.execute("""
-        INSERT INTO users (first_name, last_name, email, phone, password)
-        VALUES (%s, %s, %s, %s, %s, %s)
-    """, 
-    (form.first_name.data, form.last_name.data, form.email.data, form.phone.data, form.password.data))
-    conn.commit()
-    cur.close()
+def add_public_user(form):
+   '''Receives the public user form and creates the user'''
+   conn = connection()
+   cur = conn.cursor()
+   
+   try:
+      # Create parent user
+      cur.execute("""
+         INSERT INTO users (first_name, last_name, email, phone, password)
+         VALUES (%s, %s, %s, %s, %s, %s)
+      """, 
+      (form.first_name.data, form.last_name.data, form.email.data, form.phone.data, form.password.data))
+      
+      # Fetch newly created user ID
+      row = cur.fetchone()
+      if not row.ID:
+         conn.rollback()
+         raise Exception("No user ID received back")
+      
+      # Create public user
+      cur.execute("""
+         INSERT INTO public_user (user_id)
+         VALUES (%s)
+      """, (row.ID))
+      conn.commit()
+      
+   except conn.Error as e:
+      conn.rollback()
+      print(f"Transaction failed with error: {e}")
+   finally:
+      cur.close()
+
