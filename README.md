@@ -44,10 +44,11 @@ MYSQL_HOST=localhost
 MYSQL_USER=your_database_username
 MYSQL_PASSWORD=your_database_password
 MYSQL_DB=your_database_name
+```
 
 #### 4. Run the app
 
-``` python run.py
+``` python run.py ```
 
 
 ## How to use:
