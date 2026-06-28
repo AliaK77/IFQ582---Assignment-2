@@ -1,7 +1,7 @@
 <!-- templates/account.html -->
 {% extends 'base.html' %}
 
-{% block title %}Item Details{% endblock %}
+{% block title %}Account{% endblock %}
 
 {% block content %}
 
@@ -96,4 +96,54 @@
     </div>
 </section>
 
+<section class="container px-3 px-md-5 my-4">
+    <div class="card account-card">
+    <div class="card-header">
+        Change password
+    </div>
+
+    <div class="card-body">
+        <p class="text-muted">
+            Use this form to update your password.
+        </p>
+
+        <form method="POST">
+            <div class="mb-3">
+                <label for="currentPassword" class="form-label">Current Password</label>
+                <input type="password"
+                        class="form-control"
+                        id="currentPassword"
+                        name="currentPassword"
+                        required>
+            </div>
+
+            <div class="mb-3">
+                <label for="newPassword" class="form-label">New Password</label>
+                <input type="password"
+                        class="form-control"
+                        id="newPassword"
+                        name="newPassword"
+                        minlength="12"
+                        required>
+            </div>
+
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password"
+                        class="form-control"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        minlength="12"
+                        required>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                Change Password
+            </button>
+
+        </form>
+    </div>
+    </div>
+</section>
+
+</section>
 {% endblock %}

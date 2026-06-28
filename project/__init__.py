@@ -2,6 +2,8 @@
 from flask import Flask,  render_template
 from flask_login import LoginManager
 
+from .views import register
+
 from .db.setup import set_up_database
 
 
@@ -15,12 +17,12 @@ def create_app():
     app.config['SECRET_KEY'] = '72fab78649216174245adbad90741cb61fe75a1edd30bdec12c975515a95b43c'
     
     ### register the blueprint routes for views - to create the routes for the web app
-    from .views import auth, main, library, scratch
-    app.register_blueprint(auth.bp)
+    from .views import main, library, login, register, scratch
     app.register_blueprint(main.bp)
     app.register_blueprint(library.bp)
+    app.register_blueprint(login.bp)
+    app.register_blueprint(register.bp)
     app.register_blueprint(scratch.bp)
-    
     
     return app
 

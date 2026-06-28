@@ -391,7 +391,7 @@ img {
 
 /* Account Page */
 .account-page-header {
-    bordner-left: 5px solid #37231C;
+    border-left: 5px solid #37231C;
     padding-left: 1rem;
 }
 
@@ -411,4 +411,57 @@ img {
     background-color: #37231C;
     color: #FFFFFF;
     font-weight: 600;
+}
+
+/* Assessment Dashboard */
+.assessment-dashboard-header {
+    border-left: 5px solid #37231C;
+    padding-left: 1rem;
+}
+
+.assessment-dashboard-header h1 {
+    color: #2B1A14;
+    font-weight: 600;
+}
+
+.dashboard-summary-card {
+    border: none;
+    border-left: 5px solid #6B4035;
+    border-radius:10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 8px #2B1A1414;
+}
+
+.dashboard-sumary-label {
+    color: #6B4035;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.dashboard-summary-number {
+    color: #2B1A14;
+    font-weight: 700;
+}
+
+.dahboard-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px #2B1A1414;
+}
+
+.dashboard-card .card-header {
+    background-color: #37231C;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.dashboard-table th {
+    color: #2B1A14;
+    font-weight: 600;
+}
+
+.dashboard-table td {
+    color: #4A3027;
 }
