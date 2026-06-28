@@ -1,6 +1,7 @@
 class User:
     # Constructor
-    def __init__(self, first_name, last_name, email, phone, password):
+    def __init__(self, first_name, last_name, email, phone, password, ID=None):
+        self.ID = ID
         self.first_name = first_name
         self.last_name = last_name
         self.full_name = f"{first_name} {last_name}"
