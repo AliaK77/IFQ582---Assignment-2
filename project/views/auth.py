@@ -2,15 +2,15 @@
 ### import blueprint / route template
 from flask import Blueprint, render_template, request, flash, redirect, session, url_for
 from hashlib import sha256
-from ..forms import RegisterForm, LoginForm
-from ..db.user import check_for_user, add_user
+from ..forms import RegisterPublicForm, LoginForm, RegisterLibraryStaffForm
+from ..db.user import check_for_user, add_public_user, add_libray_staff
 
 bp = Blueprint('auth', __name__)
 
 
-@bp.route('/register/', methods=['POST', 'GET'])
-def register():
-    form = RegisterForm()
+@bp.route('/register_public/', methods=['POST', 'GET'])
+def registerPublicUser():
+    form = RegisterPublicForm()
     if request.method == 'POST':
         if form.validate_on_submit():
             # Hash the password
@@ -22,7 +22,28 @@ def register():
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
-            add_user(form)
+            add_public_user(form)
+            flash('Registration successful!')
+            return redirect(url_for('main.login'))
+
+    return render_template('register.html', form=form)
+
+
+@bp.route('/register_public/', methods=['POST', 'GET'])
+def registerLibraryStaff():
+    form = RegisterLibraryStaffForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            # Hash the password
+            assert form.password.data
+            form.password.data = sha256(form.password.data.encode()).hexdigest()
+            # Check if the user already exists
+            user = check_for_user(form.email.data, form.password.data)
+            if user:
+                flash('User already exists', 'error')
+                return redirect(url_for('main.register'))
+            # User does not exist; create them
+            add_libray_staff(form)
             flash('Registration successful!')
             return redirect(url_for('main.login'))
 
