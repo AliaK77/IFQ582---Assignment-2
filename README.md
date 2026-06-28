@@ -1,4 +1,4 @@
-# Title: Indigenous State Library Collection
+# Indigenous State Library Collection
 
 ## Highlights:
 * Admin has full system access with ability to create, edit and delete collection items
