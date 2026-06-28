@@ -48,7 +48,8 @@ MYSQL_DB=your_database_name
 
 #### 4. Run the app
 
-``` python run.py ```
+``` python run.py 
+```
 
 
 ## How to use:
