@@ -10,21 +10,22 @@ def get_env_contents(app):
    '''Gets contents of an .env file and puts them in app context for MySQL'''
    if not os.path.exists(".env"):
       raise Exception("Could not locate .env file; please put it in project root.")
+   config: dict[str, str | None] = {
+      'MYSQL_HOST': None,
+      'MYSQL_USER': None,
+      'MYSQL_PASSWORD': None,
+      'MYSQL_DB': None,
+   }
    with open(".env") as f:
       for line in f:
          key, value = line.strip().split("=", 1)
-         os.environ[key] = value
+         if key in config:
+            if not value:
+               raise Exception("Your .env file needs to specify " + key)
+            app.config[key] = value
+         else:
+            raise Exception("Your .env file contains an unrecognised item called" + value)
 
-   def set_in_app_config(key):
-      value = os.getenv(key)
-      if not value:
-         raise Exception("Your .env file needs to specify " + key)
-      app.config[key] = value
-
-   set_in_app_config('MYSQL_HOST')
-   set_in_app_config('MYSQL_USER')
-   set_in_app_config('MYSQL_PASSWORD')
-   set_in_app_config('MYSQL_DB')
    app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 
