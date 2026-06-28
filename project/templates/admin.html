@@ -4,6 +4,16 @@
 {% block title %}Item Details{% endblock %}
 
 {% block content %}
+
+<section class="container px-3 md-5 my-5">
+        <div class="admin-page-header mb-4">
+            <h1 class="mb-2">Admin Dashboard</h1>
+            <p class="text-muted mb-0">
+                Change user roles, manage and create new collection items.
+            </p>
+        </div>
+</section>
+
 <div class="content-section">
         <form method="POST" action="">
         {{ form.hidden_tag() }}
@@ -115,4 +125,23 @@
             </form>
             </div>
 
+
+
+
+            <!-- Modify once routes added-->
+
+<section class="container px-3 px-md-5 my-4">
+        <div class="card-admin-card">
+            <div class="card-header">
+                Manage Collection Items
+            </div>
+
+            <div class="card-body">
+                <p class="text-muted">
+                    Edit or delete existing collection items.
+                </p>
+                
+            </div>
+        </div>
+</section>
 {% endblock %}
