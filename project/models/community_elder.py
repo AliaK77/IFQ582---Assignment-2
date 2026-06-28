@@ -3,13 +3,14 @@ from .user import User
 class CommunityElder(User):
     # Constructor
     def __init__(self, 
-            first_name, last_name, email, phone, password, 
-            community_elder_id, community_name):
+            first_name, last_name, email, phone, password, community_name, 
+            community_elder_id=None, user_id=None):
         # Call parent's init
         super().__init__(first_name=first_name, last_name=last_name, 
-                           email=email, phone=phone, password=password)
-        self.community_elder_id = community_elder_id
+                           email=email, phone=phone, password=password, ID=user_id)
+        # Assign values to CommunityElder-specific fields
         self.community_name = community_name
+        self.community_elder_id = community_elder_id
 
 
     # Get community elder details

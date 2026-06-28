@@ -7,6 +7,7 @@ class LibraryStaff(User):
       # Call parent's init
       super().__init__(first_name=first_name, last_name=last_name, 
                         email=email, phone=phone, password=password, ID=user_id)
+        # Assign values to LibraryStaff-specific fields
       self.staff_id = staff_id
       self.collection_items = []
       self.position_title = position_title

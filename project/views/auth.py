@@ -2,13 +2,10 @@
 ### import blueprint / route template
 from flask import Blueprint, render_template, request, flash, redirect, session, url_for
 from hashlib import sha256
-<<<<<<< HEAD
-from ..forms import RegisterForm, LoginForm
-from ..db.user import check_for_user#, add_user
-=======
-from ..forms import RegisterPublicForm, LoginForm, RegisterLibraryStaffForm
+from ..forms import LoginForm
+from ..forms import RegisterPublicForm, RegisterLibraryStaffForm, RegisterCommunityElderForm
+
 from ..db.user import check_for_user, add_public_user, add_library_staff
->>>>>>> a378e96cb47aaa937000da239be24c2d95344583
 
 bp = Blueprint('auth', __name__)
 
@@ -27,10 +24,6 @@ def registerPublicUser():
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
-<<<<<<< HEAD
-            #add_user(form)
-            #flash('Registration successful!')
-=======
             add_public_user(form)
             flash('Registration successful!')
             return redirect(url_for('main.login'))
@@ -38,7 +31,7 @@ def registerPublicUser():
     return render_template('register.html', form=form)
 
 
-@bp.route('/register_public/', methods=['POST', 'GET'])
+@bp.route('/register_library_staff/', methods=['POST', 'GET'])
 def registerLibraryStaff():
     form = RegisterLibraryStaffForm()
     if request.method == 'POST':
@@ -54,7 +47,27 @@ def registerLibraryStaff():
             # User does not exist; create them
             add_library_staff(form)
             flash('Registration successful!')
->>>>>>> a378e96cb47aaa937000da239be24c2d95344583
+            return redirect(url_for('main.login'))
+
+    return render_template('register.html', form=form)
+
+
+@bp.route('/register_community_elder/', methods=['POST', 'GET'])
+def registerCommunityElder():
+    form = RegisterCommunityElderForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            # Hash the password
+            assert form.password.data
+            form.password.data = sha256(form.password.data.encode()).hexdigest()
+            # Check if the user already exists
+            user = check_for_user(form.email.data, form.password.data)
+            if user:
+                flash('User already exists', 'error')
+                return redirect(url_for('main.register'))
+            # User does not exist; create them
+            add_library_staff(form)
+            flash('Registration successful!')
             return redirect(url_for('main.login'))
 
     return render_template('register.html', form=form)
