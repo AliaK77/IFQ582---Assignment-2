@@ -1,0 +1,99 @@
+<!-- templates/account.html -->
+{% extends 'base.html' %}
+
+{% block title %}Item Details{% endblock %}
+
+{% block content %}
+
+<section class="container px-3 px-md-5 my-5">
+    <div class="account-page-header mb-4">
+        <h1 class="mb-2">Manage Account</h1>
+        <p class="text-muted mb-0">
+            Review and update your acount details, contact information and password.
+        </p>
+    </div>
+</section>
+
+<section class="container px-3 px-md-5 my-4">
+    <div class="row">
+
+        <div class="col-lg-4 mb-4">
+        <div class="card account-card">
+            <div class="card-header">
+                Account Summary
+            </div>
+
+            <div class="card-body">
+                <p class="mb-2">
+                    <strong>Name:</strong> User Name
+                </p>
+
+                <p class="mb-2">
+                    <strong>Email:</strong> name@example.com
+                </p>
+
+                <p class="mb-2">
+                    <strong>Phone:</strong> 0412 312 312
+                </p>
+
+                <p class="mb-0">
+                    <strong>Role:</strong> Library Member
+                </p>
+            </div>
+        </div>
+    <div>
+
+<!-- Update Details-->
+<div class="col-lg-8 mb-4">
+    <div clas="card account-card">
+        Update Contact Details
+    </div>
+
+    <div class="card-body">
+        <form method="POST">
+
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text"
+                        class="text"
+                        class="form-control"
+                        id="fullName"
+                        name="fullName"
+                        value="User Name"
+                        required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        value="name@example.com"
+                        required>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel"
+                        class="form-control"
+                        id="phone"
+                        name="phone"
+                        value="0412 312 312"
+                        required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Save
+            </button>
+
+        </form>
+    </div>
+</div>
+</div>
+</div>
+
+    </div>
+</section>
+
+{% endblock %}

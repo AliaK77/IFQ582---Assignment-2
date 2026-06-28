@@ -388,3 +388,27 @@ img {
 .collection-list-item .card-body {
     padding: 1.5rem;
 }
+
+/* Account Page */
+.account-page-header {
+    bordner-left: 5px solid #37231C;
+    padding-left: 1rem;
+}
+
+.account-page-header h1 {
+    color: #2B1A14;
+    font-weight: 600;
+}
+
+.account-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.account-card .card-header {
+    background-color: #37231C;
+    color: #FFFFFF;
+    font-weight: 600;
+}
