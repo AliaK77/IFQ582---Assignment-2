@@ -14,11 +14,11 @@ The Library of Indigenous Knowledge and History was created for a prominent acad
 The library has engaged with local community elders to assess the collection and receive community input on how the data is to be managed.  
 
 ## Authors:
-Joshua Beck
-Kate Freedman
-Kathleen O'Donnell
-Kayla Horniblow
-Lucy Keeling
+* Joshua Beck
+* Kate Freedman
+* Kathleen O'Donnell
+* Kayla Horniblow
+* Lucy Keeling
 
 ## Installation:
 
