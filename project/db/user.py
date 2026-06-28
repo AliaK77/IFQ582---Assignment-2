@@ -51,7 +51,7 @@ def add_public_user(form: RegisterPublicForm):
       cur.close()
 
 
-def add_libray_staff(form):
+def add_library_staff(form):
    '''Receives the library staff user registration form and creates the user'''
    conn = connection()
    cur = conn.cursor()

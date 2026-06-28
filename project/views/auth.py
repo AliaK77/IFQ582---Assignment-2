@@ -3,7 +3,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, session, url_for
 from hashlib import sha256
 from ..forms import RegisterPublicForm, LoginForm, RegisterLibraryStaffForm
-from ..db.user import check_for_user, add_public_user, add_libray_staff
+from ..db.user import check_for_user, add_public_user, add_library_staff
 
 bp = Blueprint('auth', __name__)
 
@@ -43,7 +43,7 @@ def registerLibraryStaff():
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
-            add_libray_staff(form)
+            add_library_staff(form)
             flash('Registration successful!')
             return redirect(url_for('main.login'))
 
