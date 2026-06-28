@@ -56,19 +56,35 @@ python run.py
 
 ## How to use:
 
-Admin:
+#### Admin:
+##### Login details:
 Username/email: libraryadmin@qut.edu.au
 Password: libraryadmin
 
-Community Reviewer / Elder:
+* The admin role has full system access
+* Navigate to ...
+
+#### Community Reviewer / Elder:
+##### Login details:
 Username/email: elder@qut.edu.au
 Password: communityelder
 
-Library Staff:
+* Navigate to the 'Reviewer Assessment' page to add comments to items and approve or reject public access to items
+* Navigate to 'My Account' to update contact details or change password
+
+#### Library Staff:
+##### Login details:
 Username/email: librarystaff@qut.edu.au
 Password: librarystaff
 
-Public User:
+* Navigate to
+* Navigate to 'My Account' to update contact details or change password
+
+#### Public User:
+##### Login details:
 Username/email: publicuser@qut.edu.au
 Password: publicuser 
 
+* Search and browse publicly available items from the home page
+* Select an item to view item details
+* Submit an access request to view an item at the library
