@@ -3,7 +3,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, session, url_for
 from hashlib import sha256
 from ..forms import RegisterForm, LoginForm
-from ..db.user import check_for_user, add_user
+from ..db.user import check_for_user#, add_user
 
 bp = Blueprint('auth', __name__)
 
@@ -22,8 +22,8 @@ def register():
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
-            add_user(form)
-            flash('Registration successful!')
+            #add_user(form)
+            #flash('Registration successful!')
             return redirect(url_for('main.login'))
 
     return render_template('register.html', form=form)
