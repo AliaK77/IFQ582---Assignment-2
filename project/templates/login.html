@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 {% import 'bootstrap5/form.html' as wtf %}
-{% block main %}
+{% block content %}
 <section class="shadow-sm mb-5 mt-5">
     <div class="container">
+           <form method="POST" action="">
+                {{ form.hidden_tag() }} 
         <div class="row">
             <div class="col-12">
                 <h1>User Login</h1>
             </div>
         </div>
         <div class="row mt-4 justify-content-center p-3">
-            <div class="col-md-6">{{ wtf.render_form(form) }}</div>
+        <div class="col-md-6">{{ wtf.render_form(form) }}</div>
+        <small class="text-muted row mt-4 justify-content-center"> Need An Account? 
+            <a class="row mt-4 justify-content-center" href="{{ url_for('register.registerPublicUser') }}">Sign Up Now</a></small> 
         </div>
     </div>
 </section>
-{% endblock %}
+{% endblock content %}

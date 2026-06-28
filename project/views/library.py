@@ -1,17 +1,11 @@
 ### REF: IFQ582-5.8
 ### import flask and blueprint / route template
 from flask import Blueprint, render_template, request, flash, url_for, redirect
-<<<<<<< HEAD
-from flask_login import login_manager, login_required
-from project.forms import UpdateItemForm
-from ..db.setup import mysql
-=======
 # from flask_login import login_required
 from project.forms import UpdateItemForm
 from ..db.setup import mysql
 from ..wrappers import only_admins
 from ..db.connection import connection
->>>>>>> 9a1754308790b7a3929f688070d008df0adfaa54
 
 
 bp = Blueprint('library', __name__)
@@ -37,15 +31,6 @@ def assessment():
 
 
 @bp.route("/admin", methods = ['GET', 'POST'])
-<<<<<<< HEAD
-@login_required
-def admin():
-    form = UpdateItemForm()
-    if form.validate_on_submit():
-       cur = mysql.connection.cursor()
-       cur.execute("INSERT INTO collection_items (title, description, image_link, item_category, cultural_group, sensitivity_notes, review_status, access_level) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (form.title.data, form.description.data, form.image_link.data.filename if form.image_link.data else None, form.item_category.data, form.cultural_group.data, form.sensitivity_notes.data, form.review_status.data, form.access_level.data))
-       mysql.connection.commit()
-=======
 # @login_required
 @only_admins
 def admin():
@@ -54,7 +39,6 @@ def admin():
        cur = connection().cursor()
        cur.execute("INSERT INTO collection_items (title, description, image_link, item_category, cultural_group, sensitivity_notes, review_status, access_level) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (form.title.data, form.description.data, form.image_link.data.filename if form.image_link.data else None, form.item_category.data, form.cultural_group.data, form.sensitivity_notes.data, form.review_status.data, form.access_level.data))
        connection().commit()
->>>>>>> 9a1754308790b7a3929f688070d008df0adfaa54
        cur.close()
        flash('Item added successfully!', 'success')
        return redirect(url_for('admin'))

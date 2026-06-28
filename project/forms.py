@@ -1,13 +1,7 @@
 from datetime import date
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-<<<<<<< HEAD
 from wtforms.fields import SubmitField, StringField, PasswordField, DateField, BooleanField, TextAreaField, FileField
-from wtforms.validators import InputRequired, email
-from .models.public_user import PublicUser
-from .models.library_staff import LibraryStaff
-=======
-from wtforms.fields import SubmitField, StringField, PasswordField, TextAreaField, DateField, BooleanField
 from wtforms.validators import InputRequired, email
 from .models.public_user import PublicUser
 from .models.library_staff import LibraryStaff
@@ -25,18 +19,14 @@ class UpdateItemForm(FlaskForm):
     access_level = StringField('Access Level', validators=[InputRequired()])
     submit = SubmitField('Post')  
 
->>>>>>> 9a1754308790b7a3929f688070d008df0adfaa54
 
 class LoginForm(FlaskForm):
     """Form for user login."""
     email = StringField("Email", validators = [InputRequired(), email()])
     password = PasswordField("Password", validators = [InputRequired()])
+    remember = BooleanField('Remember Me')
     submit = SubmitField("Login")
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9a1754308790b7a3929f688070d008df0adfaa54
 class RegisterPublicForm(FlaskForm):
     """Form for public user registration."""
     firstname = StringField("Your first name", validators = [InputRequired()])
@@ -46,20 +36,7 @@ class RegisterPublicForm(FlaskForm):
     password = PasswordField("Password", validators = [InputRequired()])
     submit = SubmitField("Make Account")
 
-<<<<<<< HEAD
-class UpdateItemForm(FlaskForm):
-    title = StringField('Title', validators=[InputRequired()])
-    description = TextAreaField('Description', validators=[InputRequired()])
-    image_link = FileField('Add an Image', validators=[FileAllowed(['jpg', 'png'])])
-    item_category = StringField('Category', validators=[InputRequired()])
-    cultural_group = StringField('Cultural Group', validators=[InputRequired()])
-    sensitivity_notes = TextAreaField('Sensitivity Notes', validators=[InputRequired()])
-    review_status = StringField('Review Status', validators=[InputRequired()])
-    access_level = StringField('Access Level', validators=[InputRequired()])
-    submit = SubmitField('Post')  
     
-=======
->>>>>>> 9a1754308790b7a3929f688070d008df0adfaa54
     def to_public_user(self) -> PublicUser:
         return PublicUser(
             first_name=self.firstname.data,
@@ -68,10 +45,7 @@ class UpdateItemForm(FlaskForm):
             phone=self.phone.data,
             password=self.password.data,
         )
-<<<<<<< HEAD
-=======
     
->>>>>>> 9a1754308790b7a3929f688070d008df0adfaa54
 
 class RegisterLibraryStaffForm(FlaskForm):
     """Form for library staff registration."""
@@ -96,8 +70,6 @@ class RegisterLibraryStaffForm(FlaskForm):
             start_date=self.start_date.data,
             is_admin=self.is_admin.data
         )
-<<<<<<< HEAD
-=======
     
 
 class RegisterCommunityElderForm(FlaskForm):
@@ -119,4 +91,3 @@ class RegisterCommunityElderForm(FlaskForm):
             password=self.password.data,
             community_name=self.community_name.data,
         )
->>>>>>> 9a1754308790b7a3929f688070d008df0adfaa54

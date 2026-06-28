@@ -6,7 +6,7 @@ from ..models.user import User
 def check_for_user(email, password):
     cur = cursor()
     cur.execute("""
-        SELECT user_id, first_name, last_name, email, phone
+        SELECT ID, first_name, last_name, email, phone
         FROM user
         WHERE email = %s AND password = %s
     """, (email, password))
