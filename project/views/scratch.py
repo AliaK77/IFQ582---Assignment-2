@@ -10,10 +10,27 @@ bp = Blueprint('scratch', __name__)
 def scratch():
     cur = cursor() ### open a cursor to the db
     #cur.execute("SELECT * FROM collection_items where item_id = 1") ### run the query
-    #cur.execute("SELECT item_id, title, description, image_link, item_category, cultural_group, sensitivity_notes, review_status, access_level FROM collection_items WHERE item_id = 1") ### run the query
-    cur.execute("SELECT item_id, title, description, image_link, item_category, cultural_group, sensitivity_notes, review_status, access_level FROM collection_items") ### run the query
+    cur.execute("SELECT item_id, title, description, image_link, item_category, cultural_group, sensitivity_notes, review_status, access_level FROM collection_items WHERE item_id = 1") ### run the query
+    #cur.execute("SELECT item_id, title, description, image_link, item_category, cultural_group, sensitivity_notes, review_status, access_level FROM collection_items") ### run the query
     #cur.execute("SELECT title FROM collection_items") ### run the query
     results = cur.fetchall() ### get all query results
     cur.close() ### close the cursor
-    return render_template('scratch.html', data=results) ### pass the data to the template to display
+    items = results  ### create an Item object with the results
+    return render_template('scratch.html', items=items) ### pass the data to the scratch template to display
+    #return render_template('scratch.html', data=results) ### pass the data to the template to display
     #return str(results) ### return the results as a string to the browser for initial testing -- worked OK
+
+
+#def get_items():
+#    cur = cursor() ### open a cursor to the db
+#    #cur.execute("SELECT * FROM collection_items where item_id = 1") ### run the query
+#    cur.execute("SELECT item_id, title, description, image_link, item_category, cultural_group, sensitivity_notes, review_status, access_level FROM collection_items WHERE item_id = 1") ### run the query
+#    #cur.execute("SELECT item_id, title, description, image_link, item_category, cultural_group, sensitivity_notes, review_status, access_level FROM collection_items") ### run the query
+#    #cur.execute("SELECT title FROM collection_items") ### run the query
+#    results = cur.fetchall() ### get all query results
+#    cur.close() ### close the cursor
+#    #return render_template('scratch.html', data=results) ### pass the data to the template to display
+#    #return str(results) ### return the results as a string to the browser for initial testing -- worked OK
+#    #return render_template('itemsall.html', data=results)
+#    items = Item(results)  ### create an Item object with the results
+##    return 
