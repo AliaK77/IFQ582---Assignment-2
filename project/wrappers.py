@@ -20,7 +20,7 @@ def only_admins(func):
     def wrapper(*args, **kwargs):
         if 'user' not in session or session['user']['user_id'] == 0:
             flash('Please log in before moving on.', 'error')
-            return redirect(url_for('main.login'))
+            return redirect(url_for('login.login'))
         if not session['user']['is_admin']:
             flash('You do not have permission to view this page.', 'error')
             return redirect(url_for('main.index'))
@@ -34,7 +34,7 @@ def only_elders(func):
     def wrapper(*args, **kwargs):
         if 'user' not in session or session['user']['user_id'] == 0:
             flash('Please log in before moving on.', 'error')
-            return redirect(url_for('main.login'))
+            return redirect(url_for('login.login'))
         if not session['user']['is_elder']:
             flash('You do not have permission to view this page.', 'error')
             return redirect(url_for('main.index'))
@@ -48,7 +48,7 @@ def only_staff(func):
     def wrapper(*args, **kwargs):
         if 'user' not in session or session['user']['user_id'] == 0:
             flash('Please log in before moving on.', 'error')
-            return redirect(url_for('main.login'))
+            return redirect(url_for('login.login'))
         if not session['user']['is_library_staff']:
             flash('You do not have permission to view this page.', 'error')
             return redirect(url_for('main.index'))
