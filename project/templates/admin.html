@@ -128,10 +128,10 @@
 
 
 
-            <!-- Modify once routes added-->
+<!-- Modify once routes added-->
 
 <section class="container px-3 px-md-5 my-4">
-        <div class="card-admin-card">
+        <div class="card admin-card">
             <div class="card-header">
                 Manage Collection Items
             </div>
@@ -140,8 +140,149 @@
                 <p class="text-muted">
                     Edit or delete existing collection items.
                 </p>
-                
+
+            <div class="table-responsive">
+                <table class="table align-middle dashboard-table admin-items-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Access Level</th>
+                            <th scope="col">Review Status</th>
+                            <th scope="col" class="text-center">Manage</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>ID1</td>
+                            <td>Title</td>
+                            <td>Category</td>
+                            <td>Access</td>
+                            <td>
+                                <span class="badge text-bg-warning">Pending Review</span>
+                            </td>
+                            <td class="text-center">
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#!" class="btn btn-primary btn-sm">
+                                    Edit
+                                </a>
+                                <a href="#!" class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+                            </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>ID2</td>
+                            <td>Title</td>
+                            <td>Category</td>
+                            <td>Access</td>
+                            <td class="text-center">
+                                <span class="badge text-bg-success">Approved</span>
+                            </td>
+                            <td> 
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#!" class="btn btn-primary btn-sm">
+                                    Edit
+                                </a>
+                                <a href="#!" class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+                            </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
             </div>
         </div>
+</section>
+
+<section class="container px-3 px-md-5 my-4 mb-5">
+    <div class="card admin-card">
+        <div class="card-header">
+        Manage Users and Roles
+    </div>
+
+    <div class="card-body">
+        <p class="text-muted">
+            Create a new user or manage existing user roles.
+        </p>
+
+        <div class="d-flex flex-wrap gap-2 mb-4">
+            <a href="#!" class="btn btn-primary">
+                Create Public User
+            </a>
+
+            <a href="#!" class="btn btn-primary">
+                Create Library Staff
+            </a>
+
+            <a href="#!" class="btn btn-primary">
+                Create Community Elder
+            </a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table align-middle dashboard-table admin-user-table">
+                <thead>
+                    <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Current Role</th>
+                        <th scope="col">Change Role</th>
+                        <th scope="col" class="text-end">Manage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>USER1</td>
+                        <td>Name</td>
+                        <td>user@example.com</td>
+                        <td>Public User</td>
+                        <td>
+                            <select class="form-select form-select-sm admin-select-role">
+                                <option selected>Public User</option>
+                                <option>Library Staff</option>
+                                <option>Community Elder</option>
+                                <option>Admin</option>
+                            </select>
+                        </td>
+                        <td class="text-end">
+                             <a href="#!" class="btn btn-primary btn-sm admin-update-btn">
+                             Update
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>USER2</td>
+                        <td>Name</td>
+                        <td>user@example.com</td>
+                        <td>Community Elder</td>
+                        <td>
+                            <select class="form-select form-select-sm">
+                                <option>Public User</option>
+                                <option>Library Staff</option>
+                                <option selected>Community Elder</option>
+                                <option>Admin</option>
+                            </select>
+                        </td>
+                        <td class="text-end">
+                             <a href="#!" class="btn btn-primary btn-sm admin-select-role">
+                             Update User Role
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </section>
 {% endblock %}
