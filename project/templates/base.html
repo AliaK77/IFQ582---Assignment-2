@@ -123,14 +123,14 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-8 mb-3">
+      <div class="col-lg-6 col-md-4 mb-4">
         <a class="footer-brand d-flex align-items-center mb-3" href="{{ url_for('main.index')}}">
       <img src="{{ url_for('static', filename='img/logo.png')}}"
           alt="Library logo"
           class="footer-logo me-2">
         <span>Library of Indigenous Knowledge and History</span>
         </a>
-        <p class="mb-2">
+        <p class="footer-about mb-3">
           A curated collection by QUT Library, documenting Indigenous stories, history, and creative expressions in partnership with community.
         </p>
 
@@ -149,9 +149,9 @@
           </a>                  
         </div>
   </div>
-  <div class="col-md-4 mb-3 text-md-end">
-    <h5>Explore</h5>
-    <ul class="list-unstyled mb-0">
+  <div class="col-lg-3 col-md-6 mb-3">
+    <h5 class="footer-heading">Explore</h5>
+    <ul class="list-unstyled footer-list mb-0">
     <li>
       <a class="footer-link" href="{{url_for('main.index')}}">Home</a>
     </li>
@@ -166,6 +166,20 @@
     </li>
     <li>
       <a class="footer-link" href="{{url_for('main.index')}}#contact">Contact</a>
+    </li>
+  </ul>
+  </div>
+  <div class="col-lg-3 col-md-6 mb-3">
+    <h5 class="footer-heading">FAQ & Policies</h5>
+    <ul class="list-unstyled footer-list mb-0">
+    <li>
+      <a class="footer-link" href="#!">FAQ</a>
+    </li>
+     <li>
+      <a class="footer-link" href="#!">Privacy Policy</a>
+    </li>
+        <li>
+      <a class="footer-link" href="#!">Terms of Use</a>
     </li>
   </ul>
   </div>
