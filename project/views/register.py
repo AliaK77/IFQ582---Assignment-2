@@ -25,6 +25,7 @@ def registerPublicUser():
             if add_public_user(form):
                 flash('Registration successful!')
                 return redirect(url_for('login.login'))
+            # If got to here, registration didn't work
             flash('Registration failed. Feel free to try again.', 'error')
 
     return render_template('register.html', form=form)
@@ -47,6 +48,7 @@ def registerLibraryStaff():
             if add_library_staff(form):
                 flash('Registration successful!')
                 return redirect(url_for('login.login'))
+            # If got to here, registration didn't work
             flash('Registration failed. Feel free to try again.', 'error')
 
     return render_template('register.html', form=form)

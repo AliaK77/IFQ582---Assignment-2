@@ -2,7 +2,7 @@ from datetime import date
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms.fields import SubmitField, StringField, PasswordField, DateField, BooleanField, TextAreaField, FileField
-from wtforms.validators import InputRequired, email
+from wtforms.validators import InputRequired, email, Length
 from .models.public_user import PublicUser
 from .models.library_staff import LibraryStaff
 from .models.community_elder import CommunityElder
@@ -33,11 +33,11 @@ class RegisterPublicForm(FlaskForm):
     firstname = StringField("Your first name", validators = [InputRequired()])
     lastname = StringField("Your surname", validators = [InputRequired()])
     email = StringField("Email", validators = [InputRequired(), email()])
-    phone = StringField("Your phone number", validators = [InputRequired()])
+    phone = StringField("Your phone number", validators = [InputRequired(), Length(max=10)])
     password = PasswordField("Password", validators = [InputRequired()])
     submit = SubmitField("Make Account")
 
-    
+
     def to_public_user(self) -> PublicUser:
         return PublicUser(
             first_name=self.firstname.data,
@@ -53,7 +53,7 @@ class RegisterLibraryStaffForm(FlaskForm):
     firstname = StringField("Your first name", validators = [InputRequired()])
     lastname = StringField("Your surname", validators = [InputRequired()])
     email = StringField("Email", validators = [InputRequired(), email()])
-    phone = StringField("Your phone number", validators = [InputRequired()])
+    phone = StringField("Your phone number", validators = [InputRequired(), Length(max=10)])
     password = PasswordField("Password", validators = [InputRequired()])
     position_title = StringField("Position title", validators = [InputRequired()])
     start_date = DateField("Start date", validators = [InputRequired()], default=date.today)
@@ -78,7 +78,7 @@ class RegisterCommunityElderForm(FlaskForm):
     firstname = StringField("Your first name", validators = [InputRequired()])
     lastname = StringField("Your surname", validators = [InputRequired()])
     email = StringField("Email", validators = [InputRequired(), email()])
-    phone = StringField("Your phone number", validators = [InputRequired()])
+    phone = StringField("Your phone number", validators = [InputRequired(), Length(max=10)])
     password = PasswordField("Password", validators = [InputRequired()])
     community_name = StringField("Community name", validators = [InputRequired()])
     submit = SubmitField("Make Account")
