@@ -43,7 +43,7 @@ def add_public_user(form: RegisterPublicForm):
    try:
       # Create parent user
       cur.execute("""
-         INSERT INTO users (first_name, last_name, email, phone, password)
+         INSERT INTO user (first_name, last_name, email, phone, password)
          VALUES (%s, %s, %s, %s, %s)
       """,
       (p.first_name, p.last_name, p.email, p.phone, p.password))
@@ -79,7 +79,7 @@ def add_library_staff(form: RegisterLibraryStaffForm):
    try:
       # Create parent user
       cur.execute("""
-         INSERT INTO users (first_name, last_name, email, phone, password)
+         INSERT INTO user (first_name, last_name, email, phone, password)
          VALUES (%s, %s, %s, %s, %s)
       """,
       (s.first_name, s.last_name, s.email, s.phone, s.password))
@@ -115,7 +115,7 @@ def add_community_elder(form: RegisterCommunityElderForm):
    try:
       # Create parent user
       cur.execute("""
-         INSERT INTO users (first_name, last_name, email, phone, password)
+         INSERT INTO user (first_name, last_name, email, phone, password)
          VALUES (%s, %s, %s, %s, %s)
       """,
       (e.first_name, e.last_name, e.email, e.phone, e.password))
