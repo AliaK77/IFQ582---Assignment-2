@@ -1,20 +1,21 @@
+### kath.py
 ### import flask and template for error handling
 from flask import Flask,  render_template, Blueprint, request
 from ..db.connection import cursor, connection
 from ..models.collection_item import CollectionItem
 
-bp = Blueprint('scratch', __name__)
+bp = Blueprint('kath', __name__)
 
 ### scratch testing page
 ### @app.route('/scratch')
-@bp.route('/scratch')
-def scratch():
+@bp.route('/kath')
+def kath():
     cur = cursor() ### open a cursor to the db
        
     cur.execute("SELECT item_id, title, description, image_link, item_category, item_category, cultural_group, sensitivity_notes, review_status, access_level FROM collection_items WHERE item_id = 1") ### run the query
     results = cur.fetchall() ### get all query results
     cur.close() ### close the cursor
-    return render_template('scratch.html', items=results) ### pass the data to the scratch template to display
+    return render_template('kath.html', items=results) ### pass the data to the scratch template to display
    
     
     #cur.execute("SELECT * FROM collection_items where item_id = 1") ### run the query
