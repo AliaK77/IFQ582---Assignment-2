@@ -18,7 +18,7 @@ def only_admins(func):
     """Decorator to check if the user is an admin."""
     @wraps(func)
     def wrapper(*args, **kwargs):
-        if 'user' not in session or session['user']['user_id'] == 0:
+        if 'user' not in session:
             flash('Please log in before moving on.', 'error')
             return redirect(url_for('login.login'))
         if not session['user']['is_admin']:
@@ -32,7 +32,7 @@ def only_elders(func):
     """Decorator to ensure that the user is a community elder."""
     @wraps(func)
     def wrapper(*args, **kwargs):
-        if 'user' not in session or session['user']['user_id'] == 0:
+        if 'user' not in session:
             flash('Please log in before moving on.', 'error')
             return redirect(url_for('login.login'))
         if not session['user']['is_elder']:
@@ -46,7 +46,7 @@ def only_staff(func):
     """Decorator to ensure that the user is a library staff member."""
     @wraps(func)
     def wrapper(*args, **kwargs):
-        if 'user' not in session or session['user']['user_id'] == 0:
+        if 'user' not in session:
             flash('Please log in before moving on.', 'error')
             return redirect(url_for('login.login'))
         if not session['user']['is_staff']:
