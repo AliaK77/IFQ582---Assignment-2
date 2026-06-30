@@ -38,6 +38,11 @@ def login():
 
     return render_template("login.html", form=form)
 
+@bp.route("/logout/", methods=["GET"])
+def logout():
+    session.clear()
+    return redirect(url_for("login.login"))
+
 
 # @bp.route("/login", methods=['GET', 'POST'])
 # def login():
