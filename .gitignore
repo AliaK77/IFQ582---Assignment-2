@@ -8,3 +8,5 @@ __pycache__
 # Ignore virtual environment
 .venv
 
+# Ignore VS Code settings
+.vscode

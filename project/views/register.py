@@ -3,7 +3,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from hashlib import sha256
 from ..forms import RegisterPublicForm, RegisterLibraryStaffForm, RegisterCommunityElderForm
-from ..db.user import check_for_user, add_public_user, add_library_staff, add_community_elder
+from ..db.user import email_exists, add_public_user, add_library_staff, add_community_elder
 
 bp = Blueprint('register', __name__)
 
@@ -17,14 +17,15 @@ def registerPublicUser():
             assert form.password.data
             form.password.data = sha256(form.password.data.encode()).hexdigest()
             # Check if the user already exists
-            user = check_for_user(form.email.data, form.password.data)
-            if user:
+            if email_exists(form.email.data):
                 flash('User already exists', 'error')
-                return redirect(url_for('main.register'))
+                return redirect(url_for('register.registerPublicUser'))
             # User does not exist; create them
-            add_public_user(form)
-            flash('Registration successful!')
-            return redirect(url_for('main.login'))
+            if add_public_user(form):
+                flash('Registration successful!')
+                return redirect(url_for('login.login'))
+            # If got to here, registration didn't work
+            flash('Registration failed. Feel free to try again.', 'error')
 
     return render_template('register.html', form=form)
 
@@ -38,14 +39,15 @@ def registerLibraryStaff():
             assert form.password.data
             form.password.data = sha256(form.password.data.encode()).hexdigest()
             # Check if the user already exists
-            user = check_for_user(form.email.data, form.password.data)
-            if user:
+            if email_exists(form.email.data):
                 flash('User already exists', 'error')
-                return redirect(url_for('main.register'))
+                return redirect(url_for('register.registerLibraryStaff'))
             # User does not exist; create them
-            add_library_staff(form)
-            flash('Registration successful!')
-            return redirect(url_for('main.login'))
+            if add_library_staff(form):
+                flash('Registration successful!')
+                return redirect(url_for('login.login'))
+            # If got to here, registration didn't work
+            flash('Registration failed. Feel free to try again.', 'error')
 
     return render_template('register.html', form=form)
 
@@ -59,13 +61,14 @@ def registerCommunityElder():
             assert form.password.data
             form.password.data = sha256(form.password.data.encode()).hexdigest()
             # Check if the user already exists
-            user = check_for_user(form.email.data, form.password.data)
-            if user:
+            if email_exists(form.email.data):
                 flash('User already exists', 'error')
-                return redirect(url_for('main.register'))
+                return redirect(url_for('register.registerCommunityElder'))
             # User does not exist; create them
-            add_community_elder(form)
-            flash('Registration successful!')
-            return redirect(url_for('main.login'))
+            if add_community_elder(form):
+                flash('Registration successful!')
+                return redirect(url_for('login.login'))
+            # If got to here, registration didn't work
+            flash('Registration failed. Feel free to try again.', 'error')
 
     return render_template('register.html', form=form)

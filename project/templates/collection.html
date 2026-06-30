@@ -93,7 +93,7 @@
     <div class="row">
 
         <div class="col-md-3 mb-3 mb-md-0">
-            <img src="{{url_for('static', filename='Images/Photography.jpg')}}"
+            <img src="{{url_for('static', filename='img/Photography.jpg')}}"
             class="img-fluid collection-list-image"
             alt="Collection item image">
             </div>
@@ -108,12 +108,18 @@
 
                 <div class="mb-3">
                     <span class="badge text-bg-light me-1">Category</span>
-                    <span class="badge text-bg-light me-1">Access Level</span>
+                    <span class="badge text-bg-warning me-1">Restricted</span>
                 </div>
+                <p class="text-muted small mb-3">
+                    This item is restricted. Please submit an access request to view additional details.
+                </p>
 
-                <a href="{{ url_for('library.item')}}" class="btn btn-primary btn-sm">
-                    View Item
-                </a>
+                <button type="button"
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#requestAccessModal">
+                    Request Access
+                </button>
             </div>
         </div>
     </div>
@@ -125,7 +131,7 @@
     <div class="row">
 
         <div class="col-md-3 mb-3 mb-md-0">
-            <img src="{{url_for('static', filename='Images/Photography.jpg')}}"
+            <img src="{{url_for('static', filename='img/Photography.jpg')}}"
             class="img-fluid collection-list-image"
             alt="Collection item image">
             </div>
@@ -140,7 +146,7 @@
 
                 <div class="mb-3">
                     <span class="badge text-bg-light me-1">Category</span>
-                    <span class="badge text-bg-light me-1">Access Level</span>
+                    <span class="badge text-bg-light me-1">Public</span>
                 </div>
 
                 <a href="{{ url_for('library.item')}}" class="btn btn-primary btn-sm">
@@ -157,7 +163,7 @@
     <div class="row">
 
         <div class="col-md-3 mb-3 mb-md-0">
-            <img src="{{url_for('static', filename='Images/Photography.jpg')}}"
+            <img src="{{url_for('static', filename='img/Photography.jpg')}}"
             class="img-fluid collection-list-image"
             alt="Collection item image">
             </div>
@@ -182,9 +188,70 @@
         </div>
     </div>
 </article>
-
 </div>
 </div>
 </section>
+
+<!-- Request Access Modal-->
+  <div class="modal fade" id="requestAccessModal" tabindex="-1" aria-labelledby="requestAccessModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content collection-modal">
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="requestAccessModalLabel">
+                    Request Access
+                </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted">
+                    Submit the form to request access to this item.
+                </p>
+                <div class="alert alert-cultural">
+                    You must be signed in before your access request can be submitted.
+                </div>
+
+                <form method="POST" action="#!">
+                    <div class="mb-3">
+                        <label for="requestItemId" class="form-label">Item ID</label>
+                        <input type="text"
+                                class="form-control"
+                                id="requestItemId"
+                                name="item_id"
+                                value="Item ID"
+                                readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="requestItemTitle" class="form-label">Item Title</label>
+                        <input type="text"
+                                class="form-control"
+                                id="requestItemTitle"
+                                name="item_title"
+                                value="Item Title"
+                                readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="requestReason" class="form-label">Reason for Access Request</label>
+                        <textarea class="form-control"
+                                id="requestReason"
+                                name="item_reason"
+                                rows="4"
+                                placeholder="Please explain why you are requesting access to this item"
+                                required></textarea>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+  </section>
 
 {% endblock %}

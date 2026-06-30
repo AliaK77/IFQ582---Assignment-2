@@ -4,11 +4,12 @@ from flask_login import LoginManager
 from project.models.user import User
 from .views import register
 from .db.setup import set_up_database
+from .db.connection import cursor
 from flask_bootstrap import Bootstrap5
 
 
 login_manager = LoginManager()
-login_manager.login_view = 'login.login'
+login_manager.login_view = 'login.login'  # type: ignore[assignment]
 login_manager.login_message_category = 'info'
 
 ### create the web app which will run on local server http://127.0.0.1:5000 (default port)
@@ -22,12 +23,20 @@ def create_app():
   set_up_database(app)
 
  ### register the blueprint routes for views - to create the routes for the web app
+<<<<<<< HEAD
   from .views import main, library, login, register, scratch, admin
+=======
+  from .views import main, library, login, register, scratch, admin, kath
+>>>>>>> main
   app.register_blueprint(main.bp)
   app.register_blueprint(library.bp)
   app.register_blueprint(login.bp)
   app.register_blueprint(register.bp)
   app.register_blueprint(scratch.bp)
+<<<<<<< HEAD
+=======
+  app.register_blueprint(kath.bp)
+>>>>>>> main
   app.register_blueprint(admin.bp, url_prefix='/admin')
     
 ### error handling for HTTP 404 (not found) and HTTP 500 (internal server error) errors
@@ -46,7 +55,7 @@ def create_app():
 # Login manager for handling user sessions and authentication, will return the user to the login page if they are not logged in and try to access a protected route
 @login_manager.user_loader
 def load_user(user_id):
-    cur = mysql.connection.cursor()
+    cur = cursor()
     cur.execute("SELECT * FROM user WHERE user_id = %s", (user_id,))
     user = cur.fetchone()
     cur.close()
