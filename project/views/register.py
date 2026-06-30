@@ -24,7 +24,7 @@ def registerPublicUser():
             # User does not exist; create them
             add_public_user(form)
             flash('Registration successful!')
-            return redirect(url_for('main.login'))
+            return redirect(url_for('login.login'))
 
     return render_template('register.html', form=form)
 
@@ -45,7 +45,7 @@ def registerLibraryStaff():
             # User does not exist; create them
             add_library_staff(form)
             flash('Registration successful!')
-            return redirect(url_for('main.login'))
+            return redirect(url_for('login.login'))
 
     return render_template('register.html', form=form)
 
@@ -66,6 +66,6 @@ def registerCommunityElder():
             # User does not exist; create them
             add_community_elder(form)
             flash('Registration successful!')
-            return redirect(url_for('main.login'))
+            return redirect(url_for('login.login'))
 
     return render_template('register.html', form=form)

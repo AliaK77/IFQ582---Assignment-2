@@ -27,6 +27,7 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField("Login")
 
+
 class RegisterPublicForm(FlaskForm):
     """Form for public user registration."""
     firstname = StringField("Your first name", validators = [InputRequired()])
