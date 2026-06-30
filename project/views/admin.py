@@ -8,7 +8,7 @@ bp = Blueprint('admin', __name__)
 
 #Route for the admin page
 @bp.route('/admin', methods=['GET', 'POST'])
-@only_admins
+#@only_admins
 def admin():
     form = UpdateItemForm()
     if form.validate_on_submit():
