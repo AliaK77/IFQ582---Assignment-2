@@ -3,6 +3,15 @@ from project.forms import RegisterPublicForm, RegisterCommunityElderForm, Regist
 from .connection import cursor, connection
 from ..models.user import User
 
+
+def email_exists(email):
+    cur = cursor()
+    cur.execute("SELECT ID FROM user WHERE email = %s", (email,))
+    row = cur.fetchone()
+    cur.close()
+    return row is not None
+
+
 def check_for_user(email, password):
     '''
     Takes email and hashed password. 

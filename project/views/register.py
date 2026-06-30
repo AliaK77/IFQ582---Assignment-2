@@ -3,7 +3,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from hashlib import sha256
 from ..forms import RegisterPublicForm, RegisterLibraryStaffForm, RegisterCommunityElderForm
-from ..db.user import check_for_user, add_public_user, add_library_staff, add_community_elder
+from ..db.user import email_exists, add_public_user, add_library_staff, add_community_elder
 
 bp = Blueprint('register', __name__)
 
@@ -17,8 +17,7 @@ def registerPublicUser():
             assert form.password.data
             form.password.data = sha256(form.password.data.encode()).hexdigest()
             # Check if the user already exists
-            user = check_for_user(form.email.data, form.password.data)
-            if user:
+            if email_exists(form.email.data):
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
@@ -40,8 +39,7 @@ def registerLibraryStaff():
             assert form.password.data
             form.password.data = sha256(form.password.data.encode()).hexdigest()
             # Check if the user already exists
-            user = check_for_user(form.email.data, form.password.data)
-            if user:
+            if email_exists(form.email.data):
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
@@ -63,8 +61,7 @@ def registerCommunityElder():
             assert form.password.data
             form.password.data = sha256(form.password.data.encode()).hexdigest()
             # Check if the user already exists
-            user = check_for_user(form.email.data, form.password.data)
-            if user:
+            if email_exists(form.email.data):
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
