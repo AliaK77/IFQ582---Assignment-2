@@ -22,9 +22,10 @@ def registerPublicUser():
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
-            add_public_user(form)
-            flash('Registration successful!')
-            return redirect(url_for('login.login'))
+            if add_public_user(form):
+                flash('Registration successful!')
+                return redirect(url_for('login.login'))
+            flash('Registration failed. Feel free to try again.', 'error')
 
     return render_template('register.html', form=form)
 
@@ -43,9 +44,10 @@ def registerLibraryStaff():
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
-            add_library_staff(form)
-            flash('Registration successful!')
-            return redirect(url_for('login.login'))
+            if add_library_staff(form):
+                flash('Registration successful!')
+                return redirect(url_for('login.login'))
+            flash('Registration failed. Feel free to try again.', 'error')
 
     return render_template('register.html', form=form)
 
@@ -64,8 +66,10 @@ def registerCommunityElder():
                 flash('User already exists', 'error')
                 return redirect(url_for('main.register'))
             # User does not exist; create them
-            add_community_elder(form)
-            flash('Registration successful!')
-            return redirect(url_for('login.login'))
+            if add_community_elder(form):
+                flash('Registration successful!')
+                return redirect(url_for('login.login'))
+            # If got to here, registration didn't work
+            flash('Registration failed. Feel free to try again.', 'error')
 
     return render_template('register.html', form=form)
