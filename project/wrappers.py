@@ -49,11 +49,7 @@ def only_staff(func):
         if 'user' not in session:
             flash('Please log in before moving on.', 'error')
             return redirect(url_for('login.login'))
-<<<<<<< HEAD
-        if not session['user']['is_library_staff']:
-=======
         if not session['user']['is_staff']:
->>>>>>> main
             flash('You do not have permission to view this page.', 'error')
             return redirect(url_for('main.index'))
         return func(*args, **kwargs)

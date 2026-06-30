@@ -37,17 +37,11 @@
         Login / Account
       </a> -->
 
-<<<<<<< HEAD
-      {% if current_user.is_authenticated %}   
-          <a class="btn btn-outline-light btn-sm" href="{{ url_for('main.account')}}">Account</a>
-          <a class="btn btn-outline-light btn-sm" href="{{ url_for('main.logout')}}">Logout</a>
-=======
       {% if session.get("logged_in") %}
           <a class="btn btn-outline-light btn-sm" href="{{ url_for('admin.admin')}}">Admin Page</a>
           <!-- Below url will need updating once we have an Account address -->
           <a class="btn btn-outline-light btn-sm" href="{{ url_for('main.index')}}">Account</a>
           <a class="btn btn-outline-light btn-sm" href="{{ url_for('login.logout')}}">Logout</a>
->>>>>>> main
 
       {% else %}
           <a class="btn btn-outline-light btn-sm" href="{{ url_for('login.login')}}">Login</a>
