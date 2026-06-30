@@ -4,10 +4,11 @@ from flask_login import LoginManager
 from project.models.user import User
 from .views import register
 from .db.setup import set_up_database
+from .db.connection import cursor
 from flask_bootstrap import Bootstrap5
 
 login_manager = LoginManager()
-login_manager.login_view = 'login.login'
+login_manager.login_view = 'login.login'  # type: ignore[assignment]
 login_manager.login_message_category = 'info'
 
 ### create the web app which will run on local server http://127.0.0.1:5000 (default port)
@@ -44,7 +45,7 @@ def create_app():
 # Login manager for handling user sessions and authentication, will return the user to the login page if they are not logged in and try to access a protected route
 @login_manager.user_loader
 def load_user(user_id):
-    cur = mysql.connection.cursor()
+    cur = cursor()
     cur.execute("SELECT * FROM user WHERE user_id = %s", (user_id,))
     user = cur.fetchone()
     cur.close()
