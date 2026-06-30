@@ -466,3 +466,50 @@ img {
     color: #4A3027;
 }
 
+
+
+
+
+
+.navbar-logo {
+    height: 35px;
+    width: auto;
+}
+
+.footer-brand {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.footer-brand:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-logo {
+    height: 35px;
+    width: auto;
+}
+
+.footer-reference {
+    color: #f2e8e4;
+    font-size: 0.95rem;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.footer-icon-link {
+    color: #ffffff;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.footer-icon-link:hover {
+    color: #f2e8e4;
+}

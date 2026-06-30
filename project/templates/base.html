@@ -10,7 +10,10 @@
 
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-   
+ 
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 
@@ -23,8 +26,11 @@
 <nav class="navbar navbar-dark navbar-custom">
   <div class="container">
 
-    <a class="navbar-brand" href="{{ url_for('main.index')}}">
-      Library of Indigenous Knowledge and History
+    <a class="navbar-brand d-flex align-items-center" href="{{ url_for('main.index')}}">
+      <img src="{{ url_for('static', filename='images/img/logo.png')}}"
+      alt="Library logo"
+      class="navbar-logo me-2">
+      <span>Library of Indigenous Knowledge and History</span>
     </a>
     <div class="ms-auto">
       <!--<a class="btn btn-outline-light btn-sm" href="#!">
@@ -46,7 +52,7 @@
   </div>
 </nav>
 
-    <!--Secondary Navigation Bar (Bootstrap)-->
+<!--Secondary Navigation Bar (Bootstrap)-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom-secondary">
         <div class="container">
 
@@ -102,14 +108,35 @@
 <footer class="footer-custom text-white pt-4 pb-3">
   <div class="container">
     <div class="row">
+
       <div class="col-md-8 mb-3">
-        <h5>Library of Indigenous Knowledge and History</h5>
+        <a class="footer-brand d-flex align-items-center mb-3" href="{{ url_for('main.index')}}">
+      <img src="{{ url_for('static', filename='images/img/logo.png')}}"
+          alt="Library logo"
+          class="footer-logo me-2">
+        <span>Library of Indigenous Knowledge and History</span>
+        </a>
         <p class="mb-2">
-          We acknowledge the Traditional Custodians of the Country throughout Australia and honour their Elders past and present.
+          A curated collection by QUT Library, documenting Indigenous stories, history, and creative expressions in partnership with community.
         </p>
+
+        <div class="footer-social-links">
+          <a class="footer-icon-link" href="https://www.facebook.com/QUTBrisbane" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a class="footer-icon-link" href="https://www.instagram.com/qutrealworld" aria-label="Facebook">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a class="footer-icon-link" href="linkedin.com/school/queensland-university-of-technology/" aria-label="Facebook">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a class="footer-icon-link" href="https://www.youtube.com/channel/UCA8MBOs4SpWJm4OVvQUDEag" aria-label="Facebook">
+            <i class="bi bi-youtube"></i>
+          </a>                  
+        </div>
   </div>
   <div class="col-md-4 mb-3 text-md-end">
-    <h5>Site Links</h5>
+    <h5>Explore</h5>
     <ul class="list-unstyled mb-0">
     <li>
       <a class="footer-link" href="{{url_for('main.index')}}">Home</a>
@@ -131,6 +158,10 @@
   </div>
 
   <hr class="footer-divider">
+        <p class="footer-acknowlegement text-center mb-2">
+          We acknowledge the Traditional Custodians of the Country throughout Australia and honour their Elders past and present.
+        </p>
+
     <p class="small text-center mb-0">
     &copy; Library of Indigenous Knowledge and History 2026. All rights reserved.
     </p>
@@ -143,3 +174,4 @@
 
 </body>
 </html>
+
