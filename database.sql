@@ -223,7 +223,7 @@ CREATE TABLE `user` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(30) NOT NULL,
   `last_name` varchar(30) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL UNIQUE,
   `phone` varchar(10) DEFAULT NULL,
   `password` varchar(100) NOT NULL,
   PRIMARY KEY (`ID`)
