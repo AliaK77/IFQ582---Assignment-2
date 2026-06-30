@@ -19,7 +19,7 @@ def registerPublicUser():
             # Check if the user already exists
             if email_exists(form.email.data):
                 flash('User already exists', 'error')
-                return redirect(url_for('main.register'))
+                return redirect(url_for('register.registerPublicUser'))
             # User does not exist; create them
             if add_public_user(form):
                 flash('Registration successful!')
@@ -41,7 +41,7 @@ def registerLibraryStaff():
             # Check if the user already exists
             if email_exists(form.email.data):
                 flash('User already exists', 'error')
-                return redirect(url_for('main.register'))
+                return redirect(url_for('register.registerLibraryStaff'))
             # User does not exist; create them
             if add_library_staff(form):
                 flash('Registration successful!')
@@ -63,7 +63,7 @@ def registerCommunityElder():
             # Check if the user already exists
             if email_exists(form.email.data):
                 flash('User already exists', 'error')
-                return redirect(url_for('main.register'))
+                return redirect(url_for('register.registerCommunityElder'))
             # User does not exist; create them
             if add_community_elder(form):
                 flash('Registration successful!')
