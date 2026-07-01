@@ -22,17 +22,7 @@ Used to define site wide colour palette. Simplifies and allows colours to be use
 --colour-danger-soft: #EFD8D6;
 }
 
-
-/* Navigation */
-.navbar-custom {
-    background-color: var(--colour-espresso);
-    }
-
-.navbar-custom-secondary {
-    background-color: #6B4035;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-}
+/* Base */
 
 body{
     background-color: #FFFFFF;
@@ -44,9 +34,23 @@ main{
     background-color: #FFFFFF;
 }
 
+img {
+    max-width: 100%;
+}
+
 /* Navigation */
+.navbar-custom {
+    background-color: var(--colour-espresso);
+    }
+
+.navbar-custom-secondary {
+    background-color: var(--colour-brown);
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
 .navbar-dark .navbar-nav .nav-link {
-    color:#F8F5F1;
+    color: var(--colour-parchment);
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -59,7 +63,7 @@ main{
     font-weight: 600;
 }
 .navbar-brand {
-    color:#F8F5F1;
+    color: var(--colour-parchment);
     font-weight: 600;
     white-space: normal;
     line-height: 1.2;
@@ -68,6 +72,12 @@ main{
 .navbar-brand:focus {
     color: #FFFFFF;
 }
+
+.navbar-logo {
+    height: 35px;
+    width: auto;
+}
+
 @media (max-width: 576px) {
     .navbar-brand {
         font-size: 1rem;
@@ -84,16 +94,52 @@ main{
 /*Footer*/
 
 .footer-custom {
-    background-color: #2B1A14;
+    background-color: var(--colour-espresso);
+    font-size: 0.95rem;
 }
 
-.footer-custom h5{
+.footer-custom h5
+.footer-heading {
+    color: #FFFFFF;
     font-weight: 600;
     margin-bottom: 0.75rem;
 }
 
+.footer-brand {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.footer-brand:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-logo {
+    height: 35px;
+    width: auto;
+}
+
+.footer-about {
+    max-width: 620px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--colour-parchment);
+}
+
+.footer-reference {
+    color: var(--colour-parchment);
+    font-size: 0.95rem;
+}
+
+.footer-list li {
+    margin-bottom: 0.25rem;
+}
+
 .footer-link {
-    color: #F4F0EB;
+    color: var(--colour-parchment);
     text-decoration: none;
 }
 
@@ -102,39 +148,125 @@ main{
     text-decoration: underline;
 }
 
+.footer-social-links {
+    display: flex;
+    gap: 0.85rem;
+    margin-top: 1rem;
+}
+
+.footer-icon-link {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.footer-icon-link:hover {
+    color: var(--colour-border);
+
+}
+
 .footer-divider {
     border: 0;
     border-top: 1px solid #F8F5F1;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+}
+
+.footer-acknowledgement {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--colour-parchment);
 }
 
 /* Buttons */
 .btn-primary {
-    background-color: #37231C;
-    border-color: #37231C;
+    background-color: var(--colour-brown);
+    border-color: var(--colour-brown);
+    color: #FFFFFF;
 }
 
-.btn-primary:hover {
-    background-color: #4A3027;
-    border-color: #4A3027;
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--colour-clay);
+    border-color: var(--colour-clay);
+    color: #FFFFFF;
 }
 
+.btn-outline-primary,
 .btn-outline-dark {
-    color: #2B1A14;
-    border-color:#2B1A14;
+    color: var(--colour-espresso);
+    border-color: var(--colour-espresso);
 }
 
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
 .btn-outline-dark:hover,
 .btn-outline-dark:focus {
-    background-color: #F8F5F1;
-    border-color: #37231C;
-    color: #2B1A14;
+    background-color: var(--colour-parchment);
+    border-color: var(--colour-clay);
+    color: var(--colour-espresso);
 }
 
-/* Images */
-img {
-    max-width: 100%;
+.btn-success {
+    background-color: var(--colour-success);
+    border-color: var(--colour-success);
+    color: #FFFFFF;
+}
+.btn-success:hover,
+.btn-success:focus {
+    background-color: var(--colour-success-soft);
+    border-color: var(--colour-success-soft);
+    color: var(--colour-success);
+}
+
+.btn-warning {
+    background-color: var(--colour-warning);
+    border-color: var(--colour-warning);
+    color: #FFFFFF;
+}
+.btn-warning:hover,
+.btn-warning:focus {
+    background-color: var(--colour-warning-soft);
+    border-color: var(--colour-warning-soft);
+    color: var(--colour-warning);
+}
+
+.btn-danger {
+    background-color: var(--colour-danger);
+    border-color: var(--colour-danger);
+    color: #FFFFFF;
+}
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: var(--colour-danger-soft);
+    border-color: var(--colour-danger-soft);
+    color: var(--colour-danger);
+}
+
+/* Badges for status*/
+.badge-approved,
+.badge-public,
+.badge-success {
+    background-color: var(--colour-success-soft);
+    color: var(--colour-success);
+}
+
+.badge-pending,
+.badge-under-review,
+.badge-warning {
+    background-color: var(--colour-warning-soft);
+    color: var(--colour-warning);
+}
+
+.badge-restricted,
+.badge-declined,
+.badge-rejected,
+.badge-danger {
+    background-color: var(--colour-danger-soft);
+    color: var(--colour-danger);
 }
 
 /* Index Hero Section */
@@ -142,8 +274,8 @@ img {
 .hero-section {
     min-height: 420px;
     background-image: linear-gradient(
-    #F8F5F180, 
-    #F8F5F180
+    #F4F0EB80, 
+    #F4F0EB80
     ), url("../img/heroImage.jpg");
     background-size: cover;
     background-position: center;
@@ -151,7 +283,7 @@ img {
 }
 
 .hero-card {
-    background-color: #F4F0EB;
+    background-color: var(--colour-parchment);
     border-radius: 10px;
     margin-top: 2rem;
 }
@@ -243,6 +375,24 @@ img {
 .card .table th {
     background-color: #F8F5F1;
     width: 32%;
+}
+
+/* Forms */
+.form-label {
+    color: var(--colour-espresso);
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    border-color: var(--colour-border);
+    border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--colour-clay);
+    box-shadow: 0 0 0 0.2rem #75322233;
 }
 
 /* Contact */
@@ -490,52 +640,4 @@ img {
 
 .dashboard-table td {
     color: #4A3027;
-}
-
-
-
-
-
-
-.navbar-logo {
-    height: 35px;
-    width: auto;
-}
-
-.footer-brand {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.15rem;
-}
-
-.footer-brand:hover {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.footer-logo {
-    height: 35px;
-    width: auto;
-}
-
-.footer-reference {
-    color: #f2e8e4;
-    font-size: 0.95rem;
-}
-
-.footer-social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 0.75rem;
-}
-
-.footer-icon-link {
-    color: #ffffff;
-    font-size: 1.4rem;
-    text-decoration: none;
-}
-
-.footer-icon-link:hover {
-    color: #f2e8e4;
 }
