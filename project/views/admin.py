@@ -1,6 +1,7 @@
 ### import flask and blueprint / route template
 from flask import Blueprint, render_template, flash, request, url_for, redirect, app
 from flask_login import current_user
+from wtforms import form
 from project.db.admin_db import get_collection_items, get_user_role
 from project.forms import UpdateItemForm, UpdateRoleForm
 from project.models.user import User
@@ -12,7 +13,14 @@ bp = Blueprint('admin', __name__)
 #Route for the admin page
 @bp.route('/admin', methods=['GET', 'POST'])
 #@only_admins
-def admin():
+def admin_dashboard():
+    form = UpdateItemForm()
+    db_items = get_collection_items()
+    db_users = get_user_role()
+    return render_template('admin.html', title='Admin', form=form, users=db_users, items=db_items)
+
+@bp.route('/admin/add_item', methods=['GET', 'POST'])
+def add_item():
     form = UpdateItemForm()
     if form.validate_on_submit():
         cur = mysql.connection.cursor()
@@ -20,8 +28,8 @@ def admin():
         mysql.connection.commit()
         cur.close()
         flash('Item added successfully!', 'success')
-        return redirect(url_for('admin.admin'))
-    return render_template('admin.html', title='Admin', form=form, users=get_user_role(), items=get_collection_items())
+        return redirect(url_for('admin.admin_dashboard'))
+    return render_template('add_item.html', form=form,)
 
 
 @bp.route('/admin/update_role/<int:user_id>', methods=['POST'])
@@ -35,12 +43,7 @@ def update_user_role(user_id):
         cur.close()
         flash('User role updated successfully!', 'success')
     
-    return redirect(url_for('admin.admin'))
-
-@bp.route('/admin/manage_items', methods=['GET'])
-def manage_collection_page():
-    db_items = get_collection_items()
-    return render_template('admin.html', items=db_items)
+    return redirect(url_for('admin.admin_dashboard'))
 
 
 @bp.route('/admin/manage_item/<int:item_id>', methods=['POST'])
@@ -53,6 +56,6 @@ def manage_item(item_id):
         cur.close()
         flash('Item deleted successfully!', 'success')
     elif action == 'update':
-        # need to figure out update functionality
+        # need to figure this out
         flash('Update functionality not implemented yet.', 'info')
-    return redirect(url_for('admin.manage_collection_page'))
+    return redirect(url_for('admin.admin_dashboard'))

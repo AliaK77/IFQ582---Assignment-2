@@ -27,7 +27,7 @@
                     Add a new item, edit or delete existing collection items.
                 </p>
             <div class="d-flex flex-wrap gap-2 mb-4">
-            <a href="#!" class="btn btn-primary">
+            <a href="{{ url_for('admin.add_item') }}" class="btn btn-primary">
                 Add New Item
             </a>
             </div>
@@ -307,8 +307,8 @@
                 </td>
 
                 <td>
-                    <form method="POST" action="{{ url_for('admin.admin') }} ">
-                        {{ form.hidden_tag() if form }} 
+                    <form method="POST" action="{{ url_for('admin.update_user_role', user_id=user.ID) }}">
+                        {{ form.hidden_tag() }} 
                         
                         <select name="new_role" class="form-select form-select-sm" onchange="this.form.submit()">
                             <option value="" selected disabled>Choose...</option>
@@ -327,47 +327,6 @@
                 </td>
             </tr>
             {% endfor %}
-
-            <!-- temporary data   <tbody>
-                    <tr>
-                        <td>USER1</td>
-                        <td>Name</td>
-                        <td>user@example.com</td>
-                        <td>Public User</td>
-                        <td>
-                            <select class="form-select form-select-sm admin-select-role">
-                                <option selected>Public User</option>
-                                <option>Library Staff</option>
-                                <option>Community Elder</option>
-                                <option>Admin</option>
-                            </select>
-                        </td>
-                        <td class="text-end">
-                             <a href="#!" class="btn btn-primary btn-sm admin-update-btn">
-                             Update
-                            </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>USER2</td>
-                        <td>Name</td>
-                        <td>user@example.com</td>
-                        <td>Community Elder</td>
-                        <td>
-                            <select class="form-select form-select-sm">
-                                <option>Public User</option>
-                                <option>Library Staff</option>
-                                <option selected>Community Elder</option>
-                                <option>Admin</option>
-                            </select>
-                        </td>
-                        <td class="text-end">
-                             <a href="#!" class="btn btn-primary btn-sm admin-select-role">
-                             Update User Role
-                            </a>
-                        </td>
-                    </tr> -->
                 </tbody>
             </table>
         </div>
