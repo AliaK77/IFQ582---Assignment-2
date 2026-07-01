@@ -2,21 +2,18 @@
 class CollectionItem:
     # Constructor
     def __init__(self, item_id, title, description, image_link,
-                 item_type, item_category, review_status,
-                 access_status, access_considerations, sensitivity_level):
+                 item_category, review_status,
+                 access_level, sensitivity_notes):
 
         self.item_id = item_id
         self.title = title
         self.description = description
         self.image_link = image_link
-        self.item_type = item_type
         self.item_category = item_category
         self.review_status = review_status
-        self.access_status = access_status
-        self.access_considerations = access_considerations
-        self.sensitivity_level = sensitivity_level
-        self.access_reviews = []
-        self.access_requests = []    
+        self.access_level = access_level
+        self.sensitivity_notes = sensitivity_notes
+        self.access_reviews = []   
 
     # Get item details
     def get_item_details(self):
@@ -28,9 +25,8 @@ class CollectionItem:
             "Type": self.item_type,
             "Category": self.item_category,
             "Review Status": self.review_status,
-            "Access Status": self.access_status,
-            "Access Considerations": self.access_considerations,
-            "Sensitivity Level": self.sensitivity_level
+            "Access Level": self.access_level,
+            "Sensitivity Notes": self.sensitivity_notes
         }
 
  
@@ -46,7 +42,6 @@ class CollectionItem:
             f"Category: {self.item_category}\n"
             f"Review Status: {self.review_status}\n"
             f"Access Status: {self.access_status}\n"
-            f"Access Considerations: {self.access_considerations}\n"
             f"Sensitivity Level: {self.sensitivity_level}\n"
         )
 
