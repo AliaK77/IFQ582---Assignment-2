@@ -1,7 +1,31 @@
+/* CSS Variables
+Used to define site wide colour palette. Simplifies and allows colours to be used consistently.
+*/
+:root {
+--colour-espresso: #2B1A14;
+--colour-brown: #6B4035;
+--colour-clay: #753222;
+--colour-parchment: #F4F0EB;
+
+--colour-text: #1A1A1A;
+--colour-text-muted: #6F625D;
+
+--colour-border: #E5DED8;
+
+--colour-success: #6E7E4F;
+--colour-success-soft: #E4E9DA;
+
+--colour-warning: #C4834A;
+--colour-warning-soft: #F3E3D3;
+
+--colour-danger: #A6403A;
+--colour-danger-soft: #EFD8D6;
+}
+
 
 /* Navigation */
 .navbar-custom {
-    background-color: #2B1A14;
+    background-color: var(--colour-espresso);
     }
 
 .navbar-custom-secondary {
@@ -12,6 +36,8 @@
 
 body{
     background-color: #FFFFFF;
+    color: var(--colour-text);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 main{
@@ -432,7 +458,7 @@ img {
     box-shadow: 0 2px 8px #2B1A1414;
 }
 
-.dashboard-sumary-label {
+.dashboard-summary-label {
     color: #6B4035;
     font-size: 0.9rem;
     font-weight: 600;
@@ -443,7 +469,7 @@ img {
     font-weight: 700;
 }
 
-.dahboard-card {
+.dashboard-card {
     border: none;
     border-radius: 10px;
     overflow: hidden;
