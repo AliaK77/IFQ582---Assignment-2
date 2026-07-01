@@ -6,9 +6,34 @@ from ..models.collitem import CollItem
 
 bp = Blueprint('search', __name__)
 
-@bp.route('/search', methods=['GET', 'POST'])
+### REF: (John Elder, 2021)
+### search page form
+@bp.route('/search')
 def search():
-    pass
+    #pass
+    title = "Search"
+    return render_template('search.html', title=title)
+
+
+### REF: (John Elder, 2021)
+### post search results to searchresults.html
+### uses POST method only, so you can't access it via URL, only via form submission
+@bp.route('/searchresults', methods=['POST'])
+def searchresults():
+    #pass
+    title = "Search Results"
+
+    search_term = request.form.get('search_term')
+    filter_category = request.form.get('filter_category')
+    filter_access = request.form.get('filter_access')
+
+    return render_template('searchresults.html', title=title, search_term=search_term, filter_category=filter_category, filter_access=filter_access)
+
+
+
+
+
+
 #    results = []
 #    search_query = request.args.get('query', '')
 #
@@ -31,7 +56,7 @@ def search():
 #    return render_template('search.html', results=results, query=search_query)
 
 
-### REF:
+### REFERENCES:
 ### Costa, Jose Ortis. (2019). Search Utility with Flask and MySQL. Medium. https://medium.com/@joseortizcosta/search-utility-with-flask-and-mysql-60bb8ee83dad.
 ### John Elder. (2021). Search Blog Posts From Navbar - Flask Fridays #31. YouTube. https://www.youtube.com/watch?v=kmtZTo-_gJY.
 ### Ochoa, Brandon. (2023). Building a Search Feature in a Python Flask App. Ochoa Projects. https://ochoaprojects.com/posts/FlaskAppWithSimpleSearch.

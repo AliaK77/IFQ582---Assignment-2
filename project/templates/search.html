@@ -1,104 +1,71 @@
 
-<!-- templates/kath.html -->
+<!-- templates/search.html -->
 {% extends 'base.html' %}
 
-{% block title %}Item Details{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
 
-{% for item in items %}
-<section class="container px-3 px-md-5 my-5">
-  <div class="mb-4">
-    <a href="{{url_for('main.index') }}#featured-items" class="btn btn-outline-dark btn-sm">
-      Return to Collection
-    </a>
-  </div>
-<div class="card item-detail-card">
-  <div class="card-header">
-    Collection Item
-  </div>
 
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-5 mb-4 mb-md-0">
-              <img src="{{ url_for('static', filename=item.image_link) }}" 
-      class="img-fluid item-detail-image"
-      alt="Collection item image">
-    </div>
-    
-    <div class="col-md-7">
-      <h1 class="mb-3">{{ item.title }}</h1>
-      <p>
-        {{ item.description }}
-      </p>
 
-      <p class="mb-2">
-        <strong>Access Level:</strong> {{ item.access_level }}
-      </p>
+<!--Search and filter-->
+<section class="container my-5" id="collection">
+  <div class="row justify-content-center">
+  <div class="col-lg-10">
 
-      <a href="#request-access" class="btn btn-primary mt-2">
-      Request Access to This Item
-    </a>
-    </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="container px-3 px-md-5 my-5">
-
-  <div class="card item-detail-card">
+  <div class="card search-card">
     <div class="card-header">
-    Item Information
-  </div>
+      Search the Collection
+    </div>
+    <div class="card-body">
 
-  <div class="card-body">
-  <div class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-    <tr>
-      <th>Item ID</th>
-      <td>{{ item.item_id }}</td>
-    </tr>
+<!--Connect Filter controls (collection_items)-->
+<form action="/searchresults" method="POST">
+  <div class="mb-3">
+        <label for="searchKeyword">Search:</label>
+        <input type="text"
+        class="form-control"
+        id="searchKeyword"
+        name="search_term"
+        placeholder="Search by title, category, cultural group, access level or keyword">
+      </div>
 
-    <tr>
-      <th>Category</th>
-      <td>{{ item.item_category }}</td>
-    </tr>
+  <div class="row">
 
-  <tr>
-      <th>Cultural Group</th>
-      <td>{{ item.cultural_group }}
-    </tr>
+      <div class="col-md-5">
+        <label for="categoryFilter">Category:</label>
+        <select class="form-select" id="categoryFilter" name="filter_category">
+          <option value="">All Categories</option>
+          <option value="Photography">Photography</option>
+          <option value="Artwork">Artwork</option>
+          <option value="Documents and Stories">Documents and Stories</option>
+          <option value="Audio Collection">Audio Collection</option>
+          <option value="Cultural Artefacts">Cultural Artefacts</option>
+        </select>
+      </div>
 
-     <tr>
-      <th>Access Level</th>
-      <td>{{ item.access_level }}</td>
-    </tr>
+      <div class="col-md-5 mb-3">
+        <label for="accessFilter" class="form-label">Access Level</label>
+        <select class="form-select" id="accessFilter" name="filter_access">
+          <option value="">All Access Levels</option>
+          <option value="Public">Public</option>
+          <option value="Restricted">Restricted</option>
+          <option value="Private">Private</option>
+          </select>
+      </div>
 
-    </tbody>
-  </table>
-  </div>
-  </div>
+      <div class="col-md-2 mb-3 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary w-100">
+          Submit
+        </button>
+      </div>
+</div>
+</form>
+</div>
+</div>
+</div>
 </div>
 </section>
 
-<section class="container px-3 px-md-5 my-5">
-<div class="card item-detail-card">
-  <div class="card-header">
-    Cultural Notes and Access Considerations
-</div>
-<div class="card-body">
-  <p>
-  Collection items may be subject to specific cultural access conditions or sensitivity notes. Users are required to adhere to these guidelines to ensure materials are accessed in a respectful manner.
-</p>
-<div class="alert alert-cultural mb-0">
-  <strong>Sensitivity Notes:</strong>
-  {{ item.sensitivity_notes }}
-</div>
-</div>
-</div>
-</section>
 
-  {% endfor %}
 {% endblock %}

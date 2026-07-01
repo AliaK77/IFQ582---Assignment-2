@@ -33,7 +33,7 @@ def create_app():
   app.register_blueprint(items.bp)
   app.register_blueprint(admin.bp, url_prefix='/admin')
   app.register_blueprint(search.bp)
-    
+
 ### error handling for HTTP 404 (not found) and HTTP 500 (internal server error) errors
   @app.errorhandler(404) 
 # inbuilt function which takes error as parameter 
@@ -43,8 +43,20 @@ def create_app():
   @app.errorhandler(500)
   def internal_error(e):
     return render_template("500.html")
+  
+
+  ### error handling for HTTP 405 (method not allowed) errors
+  ### eg if user opens /searchresults in browser, HTTP405 error is shown as search uses POST method only to access the results page
+  @app.errorhandler(405)
+  def internal_error(e):
+    return render_template("405.html")
+  
 
   return app
+
+
+
+
 
 
 # Login manager for handling user sessions and authentication, will return the user to the login page if they are not logged in and try to access a protected route
