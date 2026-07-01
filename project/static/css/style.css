@@ -269,6 +269,87 @@ img {
     color: var(--colour-danger);
 }
 
+/* Shared Card style */
+.card .table th, 
+.card .table td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.card .table th {
+    background-color: var(--colour-parchment);
+    width: 32%;
+}
+
+.card .table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+/* Forms */
+.form-label {
+    color: var(--colour-espresso);
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    border-color: var(--colour-border);
+    border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--colour-clay);
+    box-shadow: 0 0 0 0.2rem #75322233;
+}
+
+/* Tables */
+.table th,
+.table td {
+    padding: 0.5rem 0.75rem;
+    vertical-align:middle;
+    line-height: 1.4;
+}
+
+.table th {
+    background-color: var(--colour-parchment);
+    color: var(--colour-espresso);
+    width: 30%;
+}
+
+.table th,
+.table td {
+    border-color: var(--colour-border);
+}
+
+/* Modal Alert */
+.alert-cultural {
+    background-color: var(--colour-parchment);
+    border-left: 5px solid var(--colour-clay);
+    color: var(--colour-espresso);
+    border-radius: 8px;
+}
+
+/* Adjustments for Mobile & Tablet */
+@media (max-width: 768px) {
+    .hero-section{
+        min-height: 320px;
+    }
+
+    .collection-card .card-img-top {
+        height: 180px;
+    }
+    .table th,
+    .table td {
+        padding: 0.4rem 0.55rem;
+    }
+}
+
+
 /* Index Hero Section */
 
 .hero-section {
@@ -345,6 +426,7 @@ img {
     background-color: #F8F5F1;
 }
 
+/* Search */
 .search-card {
     border: none;
     border-radius: 10px;
@@ -353,46 +435,9 @@ img {
 }
 
 .search-card .card-header {
-    background-color: #37231C;
+    background-color: var (--colour-espresso);
     color: #ffffff;
     font-weight: 600;
-}
-
-.card .table {
-    width: 100%;
-    margin-bottom: 0;
-}
-
-.card .table th, 
-.card .table td {
-    padding: 0.75rem 1rem;
-    vertical-align: middle;
-    line-height: 1.4;
-    overflow-wrap: break-word;
-    word-break: normal;
-}
-
-.card .table th {
-    background-color: #F8F5F1;
-    width: 32%;
-}
-
-/* Forms */
-.form-label {
-    color: var(--colour-espresso);
-    font-weight: 600;
-}
-
-.form-control,
-.form-select {
-    border-color: var(--colour-border);
-    border-radius: 8px;
-}
-
-.form-control:focus,
-.form-select:focus {
-    border-color: var(--colour-clay);
-    box-shadow: 0 0 0 0.2rem #75322233;
 }
 
 /* Contact */
@@ -404,62 +449,50 @@ img {
 }
 
 .contact-card .card-header {
-    background-color: #37231C;
+    background-color: var(--colour-espresso);
     color: #FFFFFF;
     font-weight:600;
 }
 
-/* Tables */
-.table th,
-.table td {
-    padding: 0.5rem 0.75rem;
-    vertical-align:middle;
-    line-height: 1.4;
-}
-
-.table th {
-    background-color: #F8F5F1;
-    width: 30%;
-}
-
-/* Forms */
-.form-control,
-.form-select {
-    border-color: #4A3027;
-}
-
-/* Modal Alert */
-.alert-cultural {
-    background-color: #F8F5F1;
-    border-left: 5px solid #37231C;
-}
-
-
-/* Adjustments for Mobile & Tablet */
-@media (max-width: 768px) {
-    .hero-section{
-        min-height: 320px;
-    }
-
-    .collection-card .card-img-top {
-        height: 180px;
-    }
-    .table th,
-    .table td {
-        padding: 0.4rem 0.55rem;
-    }
-}
-/* Assessment Page */
-.assessment-page-header {
-    border-left: 5px solid #37231C;
+/* Page Headers */
+.assessment-page-header h1,
+.collection-page-header h1,
+.account-page-header h1,
+.assessment-dashboard-header h1,
+.admin-page-header h1,
+.staff-page-header h1,
+.user-login h1,
+.account-page-header h1  {
+    border-left: 5px solid var(--colour-espresso);
     padding-left: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.assessment-page-header h1 {
-    color: #2B1A14;
+.assessment-page-header h1,
+.collection-page-header h1,
+.account-page-header h1,
+.assessment-dashboard-header h1,
+.admin-page-header h1,
+.staff-page-header h1,
+.user-login-header h1,
+.account-page-header h1 {
+    color: var(--colour-espresso);
     font-weight: 600;
 }
 
+.assessment-page-header p,
+.collection-page-header p,
+.account-page-header p,
+.assessment-dashboard-header p,
+.admin-page-header p,
+.staff-page-header p,
+.user-login-header p,
+.account-page-header p {
+    color: var(--colour-text-muted);
+    max-width: 760px;
+}
+
+/* Assessment Page */
 .assessment-card {
     border: none;
     border-radius: 10px;
@@ -468,7 +501,7 @@ img {
 }
 
 .assessment-card .card-header {
-    background-color: #37231C;
+    background-color: var(--colour-espresso);
     color: #FFFFFF;
     font-weight: 600;
 }
@@ -481,8 +514,8 @@ img {
 }
 
 .review-history-item {
-    background-color: #F8F5F1;
-    border-left: 4px solid #37231c;
+    background-color: var(--colour-parchment);
+    border-left: 4px solid var(--colour-clay);
     padding: 1rem;
     margin-bottom: 1rem;
 }
@@ -496,7 +529,7 @@ img {
 }
 
 .item-detail-card .card-header {
-    background-color: #37231C;
+    background-color: var(--colour-espresso);
     color:#FFFFFF;
     font-weight: 600;
 }
@@ -517,16 +550,6 @@ img {
 }
 
 /* Collection Page*/
-.collection-page-header {
-    border-left: 5px solid #37231C;
-    padding-left: 1rem;
-}
-
-.collection-page-header h1 {
-    color: #2B1A14;
-    font-weight: 600;
-}
-
 .collection-filter-card,
 .collection-list-item {
     border: none;
@@ -535,14 +558,14 @@ img {
 }
 
 .collection-filter-card .card-header {
-    background-color: #37231C;
+    background-color: var(--colour-espresso);
     color: #FFFFFF;
     font-weight: 600;
 }
 
 .collection-list-item {
     border: none;
-    border-left: 5px solid #6B4035;
+    border-left: 5px solid var(--colour-brown);
     border-radius: 10px;
     margin-bottom: 1.25rem;
     background-color: #FFFFFF;
@@ -557,7 +580,7 @@ img {
 }
 
 .collection-item-details{
-    color: #6B4035;
+    color: var(--colour-text-muted);
     font-size: 0.95rem;
 }
 
@@ -566,16 +589,6 @@ img {
 }
 
 /* Account Page */
-.account-page-header {
-    border-left: 5px solid #37231C;
-    padding-left: 1rem;
-}
-
-.account-page-header h1 {
-    color: #2B1A14;
-    font-weight: 600;
-}
-
 .account-card {
     border: none;
     border-radius: 10px;
@@ -584,38 +597,28 @@ img {
 }
 
 .account-card .card-header {
-    background-color: #37231C;
+    background-color: var(--colour-espresso);
     color: #FFFFFF;
     font-weight: 600;
 }
 
 /* Assessment Dashboard */
-.assessment-dashboard-header {
-    border-left: 5px solid #37231C;
-    padding-left: 1rem;
-}
-
-.assessment-dashboard-header h1 {
-    color: #2B1A14;
-    font-weight: 600;
-}
-
 .dashboard-summary-card {
     border: none;
-    border-left: 5px solid #6B4035;
+    border-left: 5px solid var(--colour-brown);
     border-radius:10px;
     background-color: #FFFFFF;
     box-shadow: 0 2px 8px #2B1A1414;
 }
 
 .dashboard-summary-label {
-    color: #6B4035;
+    color: var(--colour-brown);
     font-size: 0.9rem;
     font-weight: 600;
 }
 
 .dashboard-summary-number {
-    color: #2B1A14;
+    color: var(--colour-espresso);
     font-weight: 700;
 }
 
@@ -628,16 +631,106 @@ img {
 }
 
 .dashboard-card .card-header {
-    background-color: #37231C;
+    background-color: var(--colour-espresso);
     color: #FFFFFF;
     font-weight: 600;
 }
+/*
+.dashboard-table {
+    margin-bottom: 0;
+}
+*/
+.dashboard-table thead th {
+    background-color: var(--colour-parchment);
+    color: var(--colour-espresso);
+    font-weight: 600;
+    border-bottom: 1px solid var(--colour-border);
+    padding: 1rem;
+}
 
-.dashboard-table th {
-    color: #2B1A14;
+.dashboard-table tbody td {
+    color: var(--colour-text);
+    border-bottom: 1px solid var(--colour-border);
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.dashboard-table tbody tr:hover {
+    background-color: var(--colour-parchment);
+}
+
+/* Admin Dashboard */
+.admin-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px #2B1A1414;
+}
+
+.admin-card .card-header {
+    background-color: var(--colour-espresso);
+    color: #FFFFFF;
+    font-weight: 600px;
+    padding: 1rem 1.25rem;
+}
+
+.admin-card .card-body {
+    padding: 1.5rem;
+}
+
+.admin-card fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-card legend {
+    color: var(--colour-espresso);
     font-weight: 600;
 }
 
-.dashboard-table td {
-    color: #4A3027;
+.admin-card .form-label {
+    color: var(--colour-espresso);
+    font-weight: 600;
+}
+
+.admin-card .form-control,
+.admin-card .form-select {
+   border-color: var(--colour-border);
+}
+
+.admin-card .form-control:focus, 
+.admin-card .form-control:focus {
+    border-color: var(--colour-clay);
+    box-shadow: 0 0 0 0.2rem #75322233;
+}
+
+.admin-card .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-items-table {
+    min-width: 850px;
+}
+
+.admin-user-table,
+.admin-access-table {
+    min-width: 950px;
+}
+
+.admin-items-table th
+.admin-items-table td,
+.admin-user-table th,
+.admin-user-table td,
+.admin-access-table th,
+.admin-access-table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.admin-items-table .btn-sm {
+    white-space: nowrap;
+    min-width: 70px;
 }
