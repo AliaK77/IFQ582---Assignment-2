@@ -1,10 +1,12 @@
 
-class Item:
+class CollItem:
     # Constructor
     def __init__(self, item_id, title, description, image_link,
                  item_category, cultural_group, sensitivity_notes, 
                  review_status, access_level):
 
+        ### the self.name needs to match the name of the variable in the constructor 
+        ### + also the name in the return Class in db query
         self.item_id = item_id
         self.title = title
         self.description = description
